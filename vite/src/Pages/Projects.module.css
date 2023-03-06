@@ -1,0 +1,101 @@
+.wrapper{
+    background-color: var(--background);
+    padding: 2rem;
+    text-align: center;
+}
+
+h1, p{
+    color: var(--text);
+}
+
+.wrapper h1{
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--accent);
+}
+
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 20rem);
+    justify-content: center;
+    grid-gap: 3%;
+}
+
+.card{
+    background-color: #424242;
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    height: 20rem;
+    overflow: hidden;
+    
+    position: relative;
+}
+
+.slide{
+    background-color: #424242;
+    transform: translateY(264px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    transition: transform 600ms;
+}
+
+.content2 h3{
+    color: white;
+    background-color: #424242;
+}
+
+.content2 p{
+    font-size: 1rem;
+    color: white;
+}
+
+.content2 p:nth-child(3){
+    margin-bottom: 2rem;
+}
+
+.content2 button{
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    border-radius: 1.4rem;
+    background-color: #2b2b2b;
+    color: white;
+    cursor: pointer;
+}
+
+.card:hover .slide{
+    background-color: #33af01;
+    transform: translateY(0px);
+    padding: 1rem;
+    align-items: center;
+}
+
+.card:hover .content2 h3{
+    background: none;
+}
+
+@media (max-width: 1050px) {
+    .cards{
+        grid-template-columns: repeat(2, 20rem);
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards{
+        grid-template-columns: repeat(1, 20rem);
+        margin: 0;
+    }
+}
