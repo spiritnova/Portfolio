@@ -11,6 +11,7 @@
   --span: #99da99;
   --cardBtn: #242424;
   --fade: rgb(194, 194, 194);
+  --icons: invert(0)
 }
 
 [data-theme = 'light']{
@@ -24,6 +25,7 @@
   --span: #419441;
   --cardBtn: #45a145;
   --fade: rgb(79 79 79);
+  --icons: invert(1)
 }
 
 #root{

@@ -13,6 +13,8 @@
 }
 
 .view{
+    background-color: var(--secondary);
+    color: var(--background);
     margin-right: 1rem;
     display: flex;
     justify-content: center;
@@ -24,7 +26,8 @@
 .view svg{
     width: 100%;
     height: 35px; 
-    display: none; 
+    display: none;
+    filter: var(--icons);
 }
 
 .view span{
@@ -42,8 +45,8 @@
 
 
 .buttons a{
-    background-color: white;
-    color: black;
+    background-color: var(--secondary);
+    color: var(--background);
 
     width: 12rem;
     height: 3rem;
@@ -56,6 +59,7 @@
     width: 100%;
     height: 35px; 
     display: none; 
+    filter: var(--icons);
 }
 
 .buttons a:hover svg{
