@@ -1,3 +1,29 @@
+.aboutme{
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    background-color: #2f2f2f;
+    flex-direction: column;
+    color: white;
+    padding: 2rem;
+
+    margin-bottom: 2rem;
+    width: 50rem;
+    font-size: 18px;
+}
+
+.content h2{
+    margin-bottom: 1rem;
+}
+
+.content p{
+    font-family: 'Lato';
+}
+
 .container{
     display: flex;
 }

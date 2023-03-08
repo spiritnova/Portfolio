@@ -12,6 +12,20 @@ export default function About(){
 
     return (
         <Wrapper>
+            <div className={styles.aboutme}>
+                <div className={styles.content}>
+                    <h2>About Ibrahim Abboud</h2>
+                    <p>I am a 22 years old passionate <b>Fullstack Web developer</b> based in beirut, Lebanon who enjoys building
+                        webapps. Very positive and highly motivated person with over 2 years of experience in building
+                        beautiful websites and web applictions with a stronger focus on the Front-end technologies,
+                        I also have a very high aptitude for learning and adapting to new languages and features.
+                        <br/>
+                        <br/>
+                        Outside work, I spend most of time with my friends playing games, watching anime or eating food
+                        in restaurants.
+                    </p>
+                </div>
+            </div>
             <div className={styles.container}>
                 <div className={styles.buttons}>
                     <button className={styles.view} onClick={() => setShowModal(true)}>
