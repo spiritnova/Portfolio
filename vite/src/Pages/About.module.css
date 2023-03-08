@@ -1,0 +1,155 @@
+.container{
+    display: flex;
+}
+.container h1{
+    text-align: center;
+}
+
+.buttons{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view{
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 3rem;
+}
+
+.view svg{
+    width: 100%;
+    height: 35px; 
+    display: none; 
+}
+
+.view span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.view:hover svg{
+    display: block;
+}
+
+.view:hover span{
+    display: none;
+}
+
+
+.buttons a{
+    background-color: white;
+    color: black;
+
+    width: 12rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons a svg{
+    width: 100%;
+    height: 35px; 
+    display: none; 
+}
+
+.buttons a:hover svg{
+    display: block;
+}
+
+.buttons a:hover span{
+    display: none;
+}
+
+.computer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.screenBorder{
+    background-color: black;
+    height: 12rem;
+    width: 20rem;
+    aspect-ratio: 16/9;
+    position: relative;
+}
+
+.screenBorder img{
+    width: 50%;
+    height: 60%;
+    object-fit: contain;
+
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    opacity: .8;
+}
+
+.screen{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+    background-color: gray;
+
+    display: flex;
+    justify-content: center;
+}
+
+.power{
+    background: none;
+    display: flex;
+    justify-content: center;
+    width: 8%;
+    cursor: pointer;
+}
+
+.power img{
+    width: 100%;
+}
+
+.stand{
+    height: 2rem;
+    width: 2rem;
+    background-color: black;
+}
+
+.flat{
+    width: 5rem;
+    height: 1rem;
+    background-color: black;
+
+    border-radius: 1rem;
+}
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: .7;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 95%;
+    background-color: rgba(90, 90, 90, 0.8);
+    border-radius: 1rem;
+}
+
+
