@@ -55,6 +55,7 @@ h1, p{
 .content2 h3{
     color: white;
     background-color: #424242;
+    margin-bottom: 5rem;
 }
 
 .content2 p{
@@ -84,6 +85,7 @@ h1, p{
 
 .card:hover .content2 h3{
     background: none;
+    margin-bottom: 0;
 }
 
 @media (max-width: 1050px) {
