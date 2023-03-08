@@ -1,6 +1,7 @@
 import Button from '../Components/UI/Button';
 import styles from './Home.module.css'
 import img from '../Assets/image3-min.png'
+import { Link } from 'react-router-dom'
 
 export default function Home(){
     return (
@@ -13,7 +14,9 @@ export default function Home(){
                         <h1>a <span>React web developer</span></h1>
                         <div className={styles.buttons}>
                             <Button text={'Contact me'}/>
-                            <Button text={'Browse portfolio'}/>
+                            <Link to={'/projects'}>
+                                <Button text={'Browse portfolio'}/>
+                            </Link>
                         </div>
                     </div>
                 </div>

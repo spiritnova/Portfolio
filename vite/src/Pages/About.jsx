@@ -1,6 +1,7 @@
 import styles from './About.module.css'
 import power from '../Assets/power.svg'
 import resume from '../Assets/resume.png'
+import pdf from '../Assets/resume.pdf'
 import { useState } from 'react'
 import Wrapper from '../Components/UI/Wrapper'
 import View from '../Assets/View'
@@ -17,7 +18,7 @@ export default function About(){
                         <span>View</span>
                         <View/>
                     </button>
-                    <a href={resume} download>
+                    <a href={pdf} download>
                         <span>Download Resume</span>
                         <Download/>
                     </a>
