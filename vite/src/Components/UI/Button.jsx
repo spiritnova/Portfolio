@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function Button({ text }){
+export default function Button({ text, onClick }){
     const btn = useRef()
 
     useEffect(() => {
@@ -22,6 +22,6 @@ export default function Button({ text }){
     })
 
     return (
-        <button ref={btn}>{ text }</button>
+        <button ref={btn} onClick={onClick}>{ text }</button>
     )
 }
