@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css'
 import ThemeToggleButton from './UI/ThemeToggleButton';
-import logo from '../Assets/linkedin.svg'
-import git from '../Assets/github.svg'
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';

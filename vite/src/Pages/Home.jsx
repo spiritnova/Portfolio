@@ -1,8 +1,9 @@
 import Button from '../Components/UI/Button';
 import styles from './Home.module.css'
-import img from '../Assets/image3-min.png'
 import phone from '../Assets/phone.svg'
 import mail from '../Assets/mail.svg'
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
@@ -35,11 +36,11 @@ export default function Home(){
                 </div>
                 <div className={styles.content}>
                     <div className={styles.contentInfo}>
-                        <img src={phone}/>
+                        <PhoneIcon/>
                         <p>81 586 049</p>
                     </div>
                     <div className={styles.contentInfo}>
-                        <img src={mail}/>
+                        <MailOutlineIcon/>
                         <p>coraynova@hotmail.com</p>
                     </div>
                 </div>
