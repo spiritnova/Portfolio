@@ -25,9 +25,6 @@ export default function Home(){
                         </div>
                     </div>
                 </div>
-                <div className={styles.grid}>
-                    <img src={img}/>
-                </div>
             </div>
 
             {showModal && <div className={styles.backdrop} onClick={() => setShowModal(false)}></div>}
