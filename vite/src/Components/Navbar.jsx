@@ -5,6 +5,9 @@ import ThemeToggleButton from './UI/ThemeToggleButton';
 import logo from '../Assets/linkedin.svg'
 import git from '../Assets/github.svg'
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 export default function Navbar(props){
 
     useEffect(() => {
@@ -34,12 +37,12 @@ export default function Navbar(props){
             <ul className={styles.quicklinks}>
                 <li>
                     <a href='https://www.linkedin.com/in/ibrahim-abboud-9a4679209/' target="_blank">
-                        <img src={logo}></img>
+                        <LinkedInIcon/>
                     </a>
                 </li>
                 <li>
-                    <a href='https://github.com/spiritnova' style={{height: 32}} target="_blank">
-                        <img src={git}></img>
+                    <a href='https://github.com/spiritnova' target="_blank">
+                        <GitHubIcon/>
                     </a>
                 </li>
             </ul>
