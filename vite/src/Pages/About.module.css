@@ -72,31 +72,6 @@
 }
 
 
-.buttons a{
-    background-color: var(--secondary);
-    color: var(--background);
-
-    width: 12rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.buttons a svg{
-    width: 100%;
-    height: 35px; 
-    display: none; 
-    filter: var(--icons);
-}
-
-.buttons a:hover svg{
-    display: block;
-}
-
-.buttons a:hover span{
-    display: none;
-}
 
 .computer{
     display: flex;

@@ -4,8 +4,10 @@ import resume from '../Assets/resume.png'
 import pdf from '../Assets/resume.pdf'
 import { useState } from 'react'
 import Wrapper from '../Components/UI/Wrapper'
-import View from '../Assets/View'
-import Download from '../Assets/Download'
+import DownloadIcon from '@mui/icons-material/Download';
+import Button from '@mui/material/Button';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import Stack from '@mui/material/Stack';
 
 export default function About(){
     const [showModal, setShowModal] = useState(false)
@@ -28,14 +30,16 @@ export default function About(){
             </div>
             <div className={styles.container}>
                 <div className={styles.buttons}>
-                    <button className={styles.view} onClick={() => setShowModal(true)}>
-                        <span>View</span>
-                        <View/>
-                    </button>
-                    <a href={pdf} download>
-                        <span>Download Resume</span>
-                        <Download/>
-                    </a>
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="outlined" endIcon={<VisibilityIcon />} onClick={() => setShowModal(true)}>
+                            View
+                        </Button>
+                        <a href={pdf} download>
+                            <Button variant="contained" endIcon={<DownloadIcon />}>
+                                Download
+                            </Button>
+                        </a>
+                    </Stack>
                 </div>
                 <div className={styles.computer}>
                     <div className={styles.screenBorder}>

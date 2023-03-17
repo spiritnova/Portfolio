@@ -1,7 +1,4 @@
-import Button from '../Components/UI/Button';
 import styles from './Home.module.css'
-import phone from '../Assets/phone.svg'
-import mail from '../Assets/mail.svg'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom'
@@ -15,14 +12,15 @@ export default function Home(){
             <div className={styles.container}>
                 <div className={styles.grid}>
                     <div className={styles.info}>
-                        <h4>Hello, I am</h4>
-                        <h1>Ibrahim Abboud</h1>
-                        <h1>a <span>React web developer</span></h1>
+                        <div className={styles.texts}>
+                            <h2>Hey there,</h2>
+                            <h1>my name is Ibrahim Abboud.</h1>
+                            <h1>I am React web developer based</h1>
+                            <h1>in Beirut, Lebanon.</h1>
+                        </div>
                         <div className={styles.buttons}>
-                            <Button text={'Contact me'} onClick={() => setShowModal(true)}/>
-                            <Link to={'/projects'}>
-                                <Button text={'Browse portfolio'}/>
-                            </Link>
+                            <div className={styles.btn}><a href="#" onClick={() => setShowModal(true)}>Contact me</a></div>
+                            <div className={styles.btn}><Link to={'/projects'}>My portfolio</Link></div>
                         </div>
                     </div>
                 </div>
