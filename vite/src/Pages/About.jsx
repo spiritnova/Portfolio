@@ -23,7 +23,7 @@ export default function About(){
                         I also have a very high aptitude for learning and adapting to new languages and features.
                         <br/>
                         <br/>
-                        Outside work, I spend most of time with my friends playing games, watching anime or eating food
+                        Outside work, I spend most of time with my friends playing games, hiking or eating food
                         in restaurants.
                     </p>
                 </div>
