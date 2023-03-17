@@ -1,33 +1,15 @@
 :root {
   font-family: 'Poppins', sans-serif;
 
-  --background: #242424;
-  --secondary: white;
+  --background: #0A1828;
+  --accent: #deb992;
   --text: white;
   --text-secondary: black;
-  --accent: rgb(58 172 58);
-  --card: rgb(72 167 72);
-  --card-secondary: rgb(51 51 51);
   --span: #99da99;
   --cardBtn: #242424;
   --fade: rgb(194, 194, 194);
   --icons: invert(0);
   --about: #2f2f2f;
-}
-
-[data-theme = 'light']{
-  --background: white;
-  --secondary: #242424;
-  --text: black;
-  --text-secondary: white;
-  --accent: green;
-  --card: #242424;
-  --card-secondary: white;
-  --span: #419441;
-  --cardBtn: #45a145;
-  --fade: rgb(79 79 79);
-  --icons: invert(1);
-  --about: #dddddd;
 }
 
 #root{

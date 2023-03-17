@@ -12,7 +12,7 @@ h1, p{
     display: inline-block;
     font-size: 3rem;
     margin-bottom: 1rem;
-    border-bottom: 3px solid var(--accent);
+    border-bottom: 3px solid #BFA181;
 }
 
 
@@ -78,7 +78,7 @@ h1, p{
 }
 
 .card:hover .slide{
-    background-color: #33af01;
+    background-color: #BFA181;
     transform: translateY(0px);
     padding: 1rem;
     align-items: center;

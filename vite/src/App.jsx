@@ -7,18 +7,9 @@ import Projects from './Pages/Projects'
 import About from './Pages/About'
 
 function App() {
-
-  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-  }
-
   return (
-    <div className="App" data-theme={theme}>
-      <Navbar onToggle={toggleTheme}/>
+    <div className="App">
+      <Navbar/>
       <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/projects' element={<Projects/>}/>
