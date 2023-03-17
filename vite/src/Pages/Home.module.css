@@ -156,7 +156,7 @@
     align-items: center;
     z-index: 1000;
     border-radius: 1rem;
-    padding: 1rem;
+    padding-bottom: 1rem;
 }
 
 .header{
@@ -164,19 +164,21 @@
     width: 100%;
     text-align: center;
     padding: 1rem 2rem;
+	color: white;
 }
 
 .contentInfo{
     display: flex;
     align-items: center;
     padding: 0.5rem 2rem;
+	color: white;
 }
 
 .contentInfo svg{
     width: 3rem;
     height: 3rem;
-    filter: invert(1);
     margin-right: 2rem;
+	color: white;
 }
 
 .contentInfo:hover{

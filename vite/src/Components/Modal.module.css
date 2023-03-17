@@ -54,6 +54,7 @@
 }
 
 .modal a{
+    position: relative;
     display: block;
     text-align: center;
     padding: 1rem;
