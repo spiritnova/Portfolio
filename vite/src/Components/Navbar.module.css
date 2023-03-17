@@ -28,6 +28,10 @@
     color: var(--text);
 }
 
+.active{
+    color: var(--accent) !important;
+}
+
 .nav-items:hover{
     color: var(--accent);
 }

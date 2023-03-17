@@ -24,10 +24,6 @@
     color: var(--accent);
 }
 
-.grid span{
-    color: #BFA181;
-}
-
 .buttons{
     display: flex;
 }
@@ -63,10 +59,10 @@
 	text-decoration: none;
 	overflow: hidden;
 	color: var(--text);
-	font-weight: 400px;
+	font-weight: 400;
 	z-index: 1;
 	transition: 0.5s;
-	backdrop-filter: blur(15px);
+	backdrop-filter: blur(20px);
 }
 .btn:hover a {
 	letter-spacing: 3px;
@@ -97,7 +93,7 @@
 	background: #BFA181;
 	border-radius: 10px;
 	transition: 0.5s;
-	transition-delay: 0.5;
+	transition-delay: 0.5s;
 }
 .btn:hover::before /*lightup button*/ {
 	bottom: 0;
@@ -117,7 +113,7 @@
 	background: #BFA181;
 	border-radius: 10px;
 	transition: 0.5s;
-	transition-delay: 0.5;
+	transition-delay: 0.5s;
 }
 .btn:hover::after /*lightup button*/ {
 	top: 0;
@@ -126,20 +122,6 @@
 	border-radius: 30px;
 }
 
-
-@keyframes rippleEffect{
-    from{
-        width:0; 
-        height:0;
-        opacity:0.7;
-    }
-
-    to{
-        width:500px;
-        height:500px;
-        opacity:0;
-    }
-}
 
 
 @media (max-width: 750px){

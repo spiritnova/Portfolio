@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css'
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -21,13 +21,15 @@ export default function Navbar(){
             </ul>
             <ul className={styles['nav-links']}>
                 <li className = {styles['nav-link']}>
-                    <Link to="/" className= {styles['nav-items']}>Home</Link>
+                    <NavLink to="/" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>Home</NavLink>
                 </li>
                 <li className = {styles['nav-link']}>
-                    <Link to="/projects" className= {styles['nav-items']}>Projects</Link>
+                    <NavLink to="/projects" className = {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>
+                        Projects
+                    </NavLink>
                 </li>
                 <li className = {styles['nav-link']}>
-                    <Link to="/about" className= {styles['nav-items']}>About</Link>
+                    <NavLink to="/about" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>About</NavLink>
                 </li>
             </ul>
         </nav>
