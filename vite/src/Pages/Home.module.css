@@ -29,6 +29,10 @@
     margin-bottom: 1rem;
 }
 
+.texts span{
+    color: green;
+}
+
 .grid h1:nth-child(3){
     margin-bottom: 0.5rem;
     color: var(--text);
@@ -72,7 +76,7 @@
 	letter-spacing: 1px;
 	text-decoration: none;
 	overflow: hidden;
-	color: #fff;
+	color: var(--text);
 	font-weight: 400px;
 	z-index: 1;
 	transition: 0.5s;
