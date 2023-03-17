@@ -4,17 +4,17 @@
     text-align: center;
 }
 
-h1, p{
-    color: var(--text);
-}
-
 .wrapper h1{
+    color: white;
     display: inline-block;
     font-size: 3rem;
     margin-bottom: 1rem;
     border-bottom: 3px solid #BFA181;
 }
 
+.wrapper p{
+    color: white;
+}
 
 .cards{
     display: grid;
@@ -24,69 +24,107 @@ h1, p{
 }
 
 .card{
-    background-color: #424242;
     color: black;
-    font-size: 2rem;
     cursor: pointer;
     position: relative;
     height: 20rem;
     overflow: hidden;
-    
     position: relative;
 }
 
 .slide{
-    background-color: #424242;
-    transform: translateY(264px);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-
     height: 100%;
-    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1513628253939-010e64ac66cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+    transition: all 500ms;
+}
 
+.content{
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-
-    transition: transform 600ms;
-}
-
-.content2 h3{
-    color: white;
-    background-color: #424242;
-    margin-bottom: 5rem;
-    transition: all 400ms;
-}
-
-.content2 p{
-    font-size: 1rem;
-    color: white;
-}
-
-.content2 p:nth-child(3){
-    margin-bottom: 2rem;
-}
-
-.content2 button{
-    padding: 10px 50px;
-    font-size: 1.5rem;
-    border-radius: 1.4rem;
-    background-color: #2b2b2b;
-    color: white;
-    cursor: pointer;
-}
-
-.card:hover .slide{
-    background-color: #BFA181;
-    transform: translateY(0px);
-    padding: 1rem;
     align-items: center;
 }
 
-.card:hover .content2 h3{
-    background: none;
-    margin-bottom: 0;
+.content p{
+    font-size: 1rem;
+}
+
+.content h3{
+    color: var(--accent);
+    font-size: 2rem;
+}
+
+.slide2{
+    transform: rotateY(180deg);
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 500ms;
+
+    color: white;
+}
+
+.content2{
+    height: 100%;
+    background-color: white;
+}
+
+.header{
+    background-image: url('https://images.unsplash.com/photo-1513628253939-010e64ac66cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);;
+    clip-path: polygon(-100% 0, 100% 0, 100% 85%, 0 100%);
+
+    width: 100%;
+    padding: 2rem;
+}
+
+.header h2{
+    color: white;
+}
+.techs{
+    background-color: white;
+    padding: 1rem;
+}
+
+.content2 p{
+    color: black;
+}
+
+
+.card:hover .slide{
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+
+.card:hover .slide2{
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+.view{
+    position: absolute;
+    bottom: 0rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.view button{
+    border: 2px solid var(--accent);
+    padding: 0.5rem 2rem;
+    font-size: 1.3rem;
+    font-family: 'Poppins';
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+.view button:hover{
+    background-color: var(--accent);
+    color: white;
 }
 
 @media (max-width: 1050px) {

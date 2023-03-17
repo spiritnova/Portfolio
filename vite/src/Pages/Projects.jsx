@@ -14,7 +14,7 @@ export default function Projects(){
             "description": "Novagram is a social media Instagram clone app built using React and CSS for the front-end and Flask for the backend",
             "website": "https://novagram.vercel.app/",
             "github": "https://github.com/spiritnova/Novagram",
-            "technologies": "React, Flask, SQLAlchemy",
+            "technologies": ["React", "Flask", "SQLAlchemy"],
         },
     ]
     return (
@@ -26,11 +26,25 @@ export default function Projects(){
                 <Wrapper key={card.id}>
                     <div onClick={() => setShowModal(true)} className={styles.card}>
                         <div className={styles.slide}>
-                            <div className={styles.content2}>
-                                <h3>{card.title}</h3>
+                            <div className={styles.content}>
                                 <p>{card.subtitle}</p>
-                                <p>{card.technologies}</p>
-                                <button>View</button>
+                                <h3>{card.title}</h3>
+                            </div>
+                        </div>
+
+                        <div className={styles.slide2}>
+                            <div className={styles.content2}>
+                                <div className={styles.header}>
+                                    <h2>Technologies used</h2>
+                                </div>
+                                <div className={styles.techs}>
+                                    {card.technologies.map(tech => (
+                                        <p key={tech}>{tech}</p>
+                                    ))}
+                                </div>
+                                <div className={styles.view}>
+                                    <button>View</button>
+                                </div>
                             </div>
                         </div>
                     </div>
