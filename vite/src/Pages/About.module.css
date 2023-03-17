@@ -29,7 +29,8 @@
 }
 
 .content:before {
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    /* box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5); */
+    box-shadow: inset 0 0 2000px rgb(187 157 113 / 50%);
     filter: blur(1px);
 }
 
@@ -40,7 +41,8 @@
 
 .content p{
     font-family: 'Lato';
-    color: rgb(179 225 255);
+    /* color: rgb(179 225 255); */
+    color: white;
 }
 
 .container{
