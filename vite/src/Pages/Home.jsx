@@ -14,7 +14,7 @@ export default function Home(){
                     <div className={styles.texts}>
                         <h2>Hey there,</h2>
                         <h1>my name is Ibrahim Abboud.</h1>
-                        <h1>I am <span>React web developer</span> based</h1>
+                        <h1>I am <span>Full Stack Web Developer</span> based</h1>
                         <h1>in Beirut, Lebanon.</h1>
                     </div>
                     <div className={styles.buttons}>
