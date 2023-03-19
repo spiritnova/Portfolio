@@ -1,7 +1,7 @@
 import styles from './About.module.css'
 import power from '../Assets/power.svg'
-import resume from '../Assets/resume.png'
-import pdf from '../Assets/resume.pdf'
+import resume from '../Assets/ibrahimabboudresume.png'
+import pdf from '../Assets/ibrahimabboud.pdf'
 import { useState } from 'react'
 import Wrapper from '../Components/UI/Wrapper'
 import DownloadIcon from '@mui/icons-material/Download';
