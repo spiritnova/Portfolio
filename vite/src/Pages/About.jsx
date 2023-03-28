@@ -10,8 +10,6 @@ import Stack from '@mui/material/Stack';
 import technologies from './Technologies'
 
 export default function About(){
-    const [showModal, setShowModal] = useState(false)
-
     return (
         <div className={styles.about}>
             <div className={styles.aboutme}>
@@ -45,7 +43,12 @@ export default function About(){
                 <h1 style={{color: "white"}}>Resume</h1>
                 <div className={styles.buttons}>
                     <Stack direction="row" spacing={2}>
-                        <Button variant="outlined" endIcon={<VisibilityIcon />} onClick={() => setShowModal(true)}>
+                        <Button 
+                        variant="outlined" 
+                        endIcon={<VisibilityIcon />} 
+                        onClick={() => {
+                            window.open('http://localhost:5173/src/Assets/ibrahimabboudresume.png', "blank")
+                        }}>
                             View
                         </Button>
                         <a href={pdf} download>
@@ -56,11 +59,6 @@ export default function About(){
                     </Stack>
                 </div>
             </div>
-
-            {showModal && <div className={styles.backdrop} onClick={() => setShowModal(false)}></div>}
-            {showModal && 
-                <img src={resume} className={styles.modal}/>
-            }
         </div>
     )
 }
