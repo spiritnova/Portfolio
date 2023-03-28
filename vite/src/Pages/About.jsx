@@ -1,7 +1,6 @@
 import styles from './About.module.css'
 import resume from '../Assets/ibrahimabboudresume.png'
 import pdf from '../Assets/ibrahimabboud.pdf'
-import { useState } from 'react'
 import DownloadIcon from '@mui/icons-material/Download';
 import Button from '@mui/material/Button';
 import VisibilityIcon from '@mui/icons-material/Visibility';
