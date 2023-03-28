@@ -1,6 +1,5 @@
 import styles from './About.module.css'
-import resume from '../Assets/ibrahimabboudresume.png'
-import pdf from '../Assets/ibrahimabboud.pdf'
+import pdf from '/assets/ibrahimabboud.pdf'
 import DownloadIcon from '@mui/icons-material/Download';
 import Button from '@mui/material/Button';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -46,7 +45,7 @@ export default function About(){
                         variant="outlined" 
                         endIcon={<VisibilityIcon />} 
                         onClick={() => {
-                            window.open('/src/Assets/ibrahimabboudresume.png', "blank")
+                            window.open('/assets/ibrahimabboudresume.png', "blank")
                         }}>
                             View
                         </Button>
