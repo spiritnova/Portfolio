@@ -47,7 +47,7 @@ export default function About(){
                         variant="outlined" 
                         endIcon={<VisibilityIcon />} 
                         onClick={() => {
-                            window.open('./src/Assets/ibrahimabboudresume.png', "blank")
+                            window.open('/src/Assets/ibrahimabboudresume.png', "blank")
                         }}>
                             View
                         </Button>
