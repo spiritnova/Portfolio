@@ -24,107 +24,83 @@
 }
 
 .card{
+    background: linear-gradient(45deg, #ffc29ea8, transparent);
     color: black;
     cursor: pointer;
     position: relative;
-    height: 20rem;
+    height: 25rem;
     overflow: hidden;
     position: relative;
+    border-radius: 14px;
+    transition: all 400ms ease-in-out;
 }
 
-.slide{
-    height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1513628253939-010e64ac66cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
-    transition: all 800ms;
+.card:hover{
+    background-color: black;
+    background-position: 320px;
+}
+
+
+.card:hover .content{
+    transform: translate(-50%, -80px);
+}
+
+.card:hover .links{
+    opacity: 1;
 }
 
 .content{
-    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: all 500ms;
 }
 
 .content p{
     font-size: 1rem;
+    color: white;
+    font-weight: bold;
 }
+
 
 .content h3{
     color: var(--accent);
     font-size: 2rem;
 }
 
-.slide2{
-    transform: rotateY(180deg);
-    opacity: 0;
-    height: 100%;
-    width: 100%;
-
+.links{
     position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 800ms;
-
-    color: white;
-}
-
-.content2{
-    height: 100%;
-    background-color: white;
-}
-
-.header{
-    background-image: url('https://images.unsplash.com/photo-1513628253939-010e64ac66cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
-    -webkit-clip-path: polygon(0 0, 100% 0, 110% 85%, 0 100%);;
-    clip-path: polygon(-100% 0, 100% 0, 100% 85%, 0 100%);
-
-    width: 100%;
-    padding: 2rem;
-}
-
-.header h2{
-    color: white;
-}
-.techs{
-    background-color: white;
-    padding: 1rem;
-}
-
-.content2 p{
-    color: black;
-}
-
-
-.card:hover .slide{
-    transform: rotateY(180deg);
-    opacity: 0;
-}
-
-.card:hover .slide2{
-    transform: rotateY(0deg);
-    opacity: 1;
-}
-
-.view{
-    position: absolute;
-    bottom: 0rem;
     left: 50%;
+    top: 60%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.view button{
-    border: 2px solid var(--accent);
-    padding: 0.5rem 3rem;
-    font-size: 1.3rem;
-    font-family: 'Poppins';
+.links a{
+    margin-top: 1rem;
+}
+
+.links a:nth-of-type(3){
+    padding: 1rem;
+    background-color: #393939;
+    color: white;
+    transition: all 200ms ease-in;
     cursor: pointer;
-    transition: all 500ms;
 }
 
-.view button:hover{
-    background-color: var(--background);
-    color: var(--accent);
+.links a:nth-of-type(3):hover{
+    transform: rotate(-5deg);
+    box-shadow: 0px 0px 20px 10px #ffd152;
+    background-color: rgb(46, 46, 46);
 }
 
 @media (max-width: 1050px) {
