@@ -31,8 +31,9 @@
 }
 
 .content p{
-    font-family: 'Lato';
+    font-family: 'Roboto';
     color: #c4c4c4;
+    line-height: 1.4rem;
 }
 
 .container{
