@@ -19,7 +19,7 @@ export default function Projects(){
                         </div>
                         <div className={styles.links}>
                             <a href={card.github}>Github Repository</a>
-                            <a href={card.github}>Live link</a>
+                            <a href={card.website}>Live link</a>
                             <Link to={`/projects/${card.id}`}>More details</Link>
                         </div>
                     </div>
