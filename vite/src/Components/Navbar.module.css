@@ -1,12 +1,9 @@
 .nav{
     width: 100%;
-    margin-bottom: 1rem;
 
     display: flex;
     justify-content: space-between;
 }
-
-/* rgba(0,31,51,.9)  for cards*/ 
 
 .nav-links{
     display: flex;
