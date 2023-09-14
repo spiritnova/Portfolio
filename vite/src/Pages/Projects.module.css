@@ -1,5 +1,5 @@
 .wrapper{
-    background-color: var(--background);
+    background: none;
     padding: 2rem;
     text-align: center;
 }

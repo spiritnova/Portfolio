@@ -3,7 +3,25 @@
         "id": 1,
         "title": "Novagram",
         "subtitle": "Social media app",
-        "description": "Novagram is a social media Instagram clone app built using React, CSS for the Front-end and Flask, SQLAlchemy for the backend. The app is fully functional, you can start by registering for an account then create a post and explore around.",
+        "description": "Novagram is a social media Instagram clone web app built using React for the Front-end and Flask, SQLAlchemy for the backend. The app is fully functional, you can start by registering for an account then create a post and explore around.",
+        "website": "https://novagram.vercel.app/",
+        "github": "https://github.com/spiritnova/Novagram",
+        "technologies": ["React", "Flask", "SQLAlchemy"]
+    },
+    {
+        "id": 2,
+        "title": "Title 2",
+        "subtitle": "Subtitle",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus, quas voluptas minus mollitia ullam inventore consequuntur veniam aliquid. Laboriosam non nam at repellat consequuntur laborum accusantium modi? Vel, optio?",
+        "website": "https://novagram.vercel.app/",
+        "github": "https://github.com/spiritnova/Novagram",
+        "technologies": ["React", "Flask", "SQLAlchemy"]
+    },
+    {
+        "id": 3,
+        "title": "Title 3",
+        "subtitle": "Subtitle",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus, quas voluptas minus mollitia ullam inventore consequuntur veniam aliquid. Laboriosam non nam at repellat consequuntur laborum accusantium modi? Vel, optio?",
         "website": "https://novagram.vercel.app/",
         "github": "https://github.com/spiritnova/Novagram",
         "technologies": ["React", "Flask", "SQLAlchemy"]
