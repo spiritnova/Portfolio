@@ -5,6 +5,8 @@ import Home from './Pages/Home'
 import Projects from './Pages/Projects'
 import About from './Pages/About'
 import Project from './Pages/Project'
+import Error404 from './Components/UI/Error404'
+import { ContactMe } from './Components/UI/ContactMe'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path='/projects' element={<Projects/>}/>
           <Route path='/projects/:id' element={<Project/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route path='/contactme' element={<ContactMe/>}/>
+          <Route path='*' element={<Error404/>}/>
       </Routes>
     </div>
   )
