@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './Error404.module.css'
+import { Link } from 'react-router-dom'
 
 export default function Error404() {
   const [trapped, setIsTrapped] = useState(false)
@@ -23,7 +24,7 @@ export default function Error404() {
         <div className={styles.message}>The page you are looking for is on the righ.. d..down there on the left.</div>
         <div className={styles.buttons}>
           <button onMouseOver={() => setIsTrapped(true)} onMouseOut={() => setIsTrapped(false)}>Go Home</button>
-          <button onMouseOver={() => setIsSafe(true)} onMouseOut={() => setIsSafe(false)}>Go Home</button>
+          <Link to={'/'}><button onMouseOver={() => setIsSafe(true)} onMouseOut={() => setIsSafe(false)}>Go Home</button></Link>
         </div>
       </div>
     </div>
