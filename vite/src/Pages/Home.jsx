@@ -3,6 +3,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
+import { ContactMe } from '../Components/UI/ContactMe';
 
 export default function Home(){
     const [showModal, setShowModal] = useState(false)
@@ -18,7 +19,7 @@ export default function Home(){
                         <h1>in Beirut, Lebanon.</h1>
                     </div>
                     <div className={styles.buttons}>
-                        <div className={styles.btn}><a href="#" onClick={() => setShowModal(true)}>Contact me</a></div>
+                        <div className={styles.btn}><Link to={'/contactme'}>Contact me</Link></div>
                         <div className={styles.btn}><Link to={'/projects'}>My portfolio</Link></div>
                     </div>
                 </div>
