@@ -1,0 +1,113 @@
+.container{
+    margin-top: 5rem;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+}
+
+.shape{
+    width: 50%;
+}
+
+
+.spooky{
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background-color: white;
+
+    position: relative;
+}
+
+.eyes{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 400ms;
+}
+
+.eyes span{
+    height: 80px;
+    width: 100px;
+    background-color: var(--background);
+    border-radius: 50%;
+    margin: 0 2rem;
+    transition: all 200ms;
+}
+
+.trapped{
+    transform: translateX(80px);
+    height: 54px !important;
+    width: 152px !important;
+    border-radius: 100%;
+}
+
+.sadeyes{
+    top: 45% !important;
+}
+
+.mouth{
+    position: absolute;
+    background-color: transparent;
+    width: 215px;
+    height: 105px;
+    border-radius: 50%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 10px solid black;
+    transition: all 500ms;
+}
+
+.happy{
+    height: 150px !important;
+    border-radius: 100%;
+}
+
+.sad{
+    /* transform: scale(-1) translate(50%, -50%); */
+    border-bottom: 0;
+    border-top: 10px solid black;
+}
+
+.title{
+    color: var(--accent);
+    font-size: 10rem;
+}
+
+.subtitle{
+    margin-bottom: 1rem;
+    font-size: 25px;
+}
+
+.message{
+    color: white;
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
+.buttons{
+    display: flex;
+}
+
+.buttons button{
+    border: none;
+    outline: none;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 5px 7px 10px 4px black;
+    transition: all 400ms;
+    font-size: 1.5rem;
+}
+
+.buttons button:hover{
+    background-color: var(--accent);
+    color: var(--background);
+    transform: translateY(10px);
+}
