@@ -32,7 +32,7 @@
 }
 
 .content p{
-    font-family: 'Roboto';
+    font-family: system-ui,'Roboto';
     color: #c4c4c4;
     line-height: 1.4rem;
 }
