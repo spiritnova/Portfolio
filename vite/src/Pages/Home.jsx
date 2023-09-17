@@ -1,13 +1,7 @@
 import styles from './Home.module.css'
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import PhoneIcon from '@mui/icons-material/Phone';
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
-import { ContactMe } from '../Components/UI/ContactMe';
 
 export default function Home(){
-    const [showModal, setShowModal] = useState(false)
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -24,25 +18,6 @@ export default function Home(){
                     </div>
                 </div>
             </div>
-
-            {showModal && <div className={styles.backdrop} onClick={() => setShowModal(false)}></div>}
-            {showModal && 
-            <div className={styles.modal}>
-                <div className={styles.header}>
-                    <h1>Contact</h1>
-                </div>
-                <div className={styles.content}>
-                    <div className={styles.contentInfo}>
-                        <PhoneIcon/>
-                        <p>81 586 049</p>
-                    </div>
-                    <div className={styles.contentInfo}>
-                        <MailOutlineIcon/>
-                        <p>coraynova@hotmail.com</p>
-                    </div>
-                </div>
-            </div>
-            }
         </div>
     )
 }
