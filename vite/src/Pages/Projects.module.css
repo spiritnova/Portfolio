@@ -120,7 +120,7 @@
 }
 
 
-@media (max-width: 330px) {
+@media (max-width: 500px) {
     .cards{
         grid-template-columns: repeat(1, 18rem);
         margin: 0;
