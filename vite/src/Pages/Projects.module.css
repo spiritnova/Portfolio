@@ -118,3 +118,15 @@
         margin: 0;
     }
 }
+
+
+@media (max-width: 330px) {
+    .cards{
+        grid-template-columns: repeat(1, 18rem);
+        margin: 0;
+    }
+
+    .card{
+        height: 20rem;
+    }
+}
