@@ -187,25 +187,15 @@
         margin-right: 0;
     }
     .formcontrol input{
-        width: 60%;
+        width: 100%;
     }
 
     .formcontrol textarea{
-        width: 60%;
+        width: 100%;
     }
 
     .contactform{
-        padding: 0;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .formcontrol input{
-        width: 50%;
-    }
-
-    .formcontrol textarea{
-        width: 50%;
+        align-items: normal;
     }
 }
 
@@ -221,16 +211,19 @@
     }
 
     .formcontrol{
+        flex-direction: column;
         justify-content: space-between;
     }
 
     .formcontrol input{
         min-width: 140px;
+        font-size: 16px;
     }
 
     .formcontrol label{
         font-size: 16px;
         min-width: 150px;
+        margin-bottom: 0.5rem;
     }
 
     .bracket,.bracket2{
