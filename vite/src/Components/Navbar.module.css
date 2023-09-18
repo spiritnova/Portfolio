@@ -55,3 +55,10 @@
 .quicklinks svg:hover{
     color: var(--accent);
 }
+
+
+@media screen and (max-width: 768px){
+    .nav-items{
+        padding: 1rem;
+    }
+}
