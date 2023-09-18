@@ -72,7 +72,9 @@ export default function Project() {
             </div>
 
             <div className={styles.images}>
-                <div className={styles.image}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptate quis facere nemo, animi asperiores sunt. Odio consequatur porro iure mollitia quis hic, debitis nihil natus, atque consectetur quibusdam minus.</div>
+                {item.Images.map(image => (
+                    <img src={`/assets/${image}`} key={image}/>
+                ))}
             </div>
         </div>
     </div>

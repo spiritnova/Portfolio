@@ -1,6 +1,5 @@
 .container{
     color: white;
-    background: var(--gradient);
 }
 
 .project{
@@ -9,12 +8,16 @@
 }
 
 .images{
-    display: flex;
-    justify-content: center;
-    background-color: white;
     width: 100%;
-    height: 1000px;
     margin-right: 33.33%;
+}
+
+
+.images img{
+    width: 100%;
+    background-size: cover;
+    margin: 0;
+    vertical-align: bottom;
 }
 
 .details{
@@ -183,5 +186,12 @@
 
     .images{
         margin-right: 0;
+    }
+}
+
+
+@media screen and (max-width: 900px){
+    .details{
+        padding: 1rem;
     }
 }
