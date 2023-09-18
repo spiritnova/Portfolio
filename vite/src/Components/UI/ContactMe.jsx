@@ -1,11 +1,32 @@
 import styles from './ContactMe.module.css'
 import SendIcon from '@mui/icons-material/Send';
 
+import emailjs from '@emailjs/browser';
+
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { LinkedIn, GitHub } from '@mui/icons-material';
+import { useRef } from 'react';
 
 export const ContactMe = () => {
+    const form = useRef();
+
+    let service_id = import.meta.env.VITE_SERVICE_ID
+    let template_id = import.meta.env.VITE_TEMPLATE_ID
+    let public_key = import.meta.env.VITE_PUBLIC_KEY
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm("service_jxfsfyl", "template_sxd8hqh", form.current, 'wL6VorCzQwYCMSEvi')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
+
+
   return (
     <div className={styles.contactform}>
         <div className={styles.header}>
@@ -13,7 +34,6 @@ export const ContactMe = () => {
         </div>
 
         <div className={styles.container}>
-
             <div className={styles.info}>
                 <div className={styles.row}>
                     <div className={styles.icon}>
@@ -48,22 +68,22 @@ export const ContactMe = () => {
                 <div className={styles.bracket}>
                     &lt;
                 </div>
-                <form className={styles.form}>
+                <form className={styles.form} ref={form} onSubmit={sendEmail}>
                     <div className={styles.formcontrol}>
                         <label>FULL NAME</label>
-                        <input type='text'/>
+                        <input type='text' name='user_name'/>
                     </div>
                     <div className={styles.formcontrol}>
                         <label>E-Mail</label>
-                        <input type='text'/>
+                        <input type='email' name='user_email'/>
                     </div>
                     <div className={styles.formcontrol}>
                         <label>Message</label>
-                        <textarea/>
+                        <textarea name='message'/>
                     </div>
 
                     <div className={styles.button}>
-                        <button>
+                        <button type='submit'>
                             <span>Send</span>
                             <SendIcon/>
                         </button>
