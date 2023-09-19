@@ -169,6 +169,15 @@
     cursor:no-drop !important;
 }
 
+.technologies{
+    margin: 1rem 0;
+}
+
+.technologies span svg{
+    height: 40px;
+    width: 40px;
+    margin-right: 1rem;
+}
 
 @media screen and (min-width: 768px) {
     .details{

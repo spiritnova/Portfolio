@@ -9,6 +9,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import Error404 from '../Components/UI/Error404';
+import technologies from './Technologies';
 
 export default function Project() {
     const [prevIsDisabled, setPrevIsDisabled] = useState()
@@ -24,6 +25,15 @@ export default function Project() {
     if(!item){
         return <Error404/>
     }
+
+    const languages = []
+    item.technologies.forEach(tech => {
+        technologies.forEach(lang => {
+            if(tech === lang.title){
+                languages.push(lang)
+            }
+        })
+    })
 
     useEffect(() => {
         if(parseInt(id) === 1){
@@ -59,6 +69,11 @@ export default function Project() {
                 </div>
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
+                <div className={styles.technologies}>
+                    {languages.map(lang => (
+                        <span>{lang.logo}</span>
+                    ))}
+                </div>
                 <div className={styles.links}>
                     <a href={item.website}>
                         <span className={styles.text}>Visit</span>
