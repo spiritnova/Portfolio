@@ -11,6 +11,12 @@ import NodePM from '../langs/NodePM'
 import Photoshop from '../langs/Photoshop'
 import Django from '../langs/Django'
 import Mongo from '../langs/Mongo'
+import Typescript from '../langs/Typescript'
+import Mysql from '../langs/Mysql'
+import Postgre from '../langs/Postgre'
+import Vsc from '../langs/Vsc'
+import Node from '../langs/Node'
+import Python from '../langs/Python'
 
 const technologies = [
     {
@@ -18,8 +24,16 @@ const technologies = [
         logo: <Javascript/>
     },
     {
+        title: "Typescript",
+        logo : <Typescript/>
+    },
+    {
         title: "React",
         logo: <Reacts/>
+    },
+    {
+        title: "Node js",
+        logo: <Node/>
     },
     {
         title: "Flask",
@@ -54,6 +68,10 @@ const technologies = [
         logo: <Bootstrap/>
     },
     {
+        title: "Python",
+        logo: <Python/>
+    },
+    {
         title: "NPM",
         logo: <NodePM/>
     },
@@ -62,9 +80,21 @@ const technologies = [
         logo: <Mongo/>
     },
     {
+        title: "Postgre",
+        logo: <Postgre/>
+    },
+    {
+        title: "MySql",
+        logo: <Mysql/>
+    },
+    {
+        title: "Visual Studio Code",
+        logo: <Vsc/>
+    },
+    {
         title: "Photoshop",
         logo: <Photoshop/>
-    },
+    }
 ]
 
 
