@@ -87,7 +87,7 @@ export default function Project() {
             </div>
 
             <div className={styles.images}>
-                {item.Images.map(image => (
+                {item.Images && item.Images.map(image => (
                     <img src={`/assets/${image}`} key={image}/>
                 ))}
             </div>
