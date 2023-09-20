@@ -13,7 +13,7 @@
         "id": 2,
         "title": "Ultimate Game Launcher",
         "subtitle": "Game Store",
-        "description": "PROJECT IN PROGRESS",
+        "description": "PROJECT IN PROGRESS | You can check the project progress by visiting the live app from the links below",
         "website": "https://ultimate-game-launcher.vercel.app/",
         "github": "https://github.com/spiritnova/Game-Store-Launcher",
         "technologies": ["Next"]
