@@ -8,5 +8,14 @@
         "github": "https://github.com/spiritnova/Novagram",
         "technologies": ["React", "Flask", "SQLAlchemy"],
         "Images": ["1.png", "2.png", "3.png", "4.png", "5.png", "m1.png", "m2.png", "m3.png"]
+    },
+    {
+        "id": 2,
+        "title": "Ultimate Game Launcher",
+        "subtitle": "Game Store",
+        "description": "PROJECT IN PROGRESS",
+        "website": "https://ultimate-game-launcher.vercel.app/",
+        "github": "https://github.com/spiritnova/Game-Store-Launcher",
+        "technologies": ["Next"]
     }
 ]
