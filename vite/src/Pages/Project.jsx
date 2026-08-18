@@ -9,11 +9,13 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import Error404 from '../Components/UI/Error404';
+import Lightbox from '../Components/UI/Lightbox';
 import technologies from './Technologies';
 
 export default function Project() {
     const [prevIsDisabled, setPrevIsDisabled] = useState()
     const [nextIsDisabled, setNextIsDisabled] = useState()
+    const [lightboxIndex, setLightboxIndex] = useState(null)
 
     const { id } = useParams()
     const item = projects.find(project => project.id === parseInt(id))
@@ -51,6 +53,8 @@ export default function Project() {
         else if(parseInt(id) < max){
             setNextIsDisabled(false)
         }
+
+        setLightboxIndex(null)
     }, [id])
 
   return (
@@ -71,27 +75,51 @@ export default function Project() {
                 <p>{item.description}</p>
                 <div className={styles.technologies}>
                     {languages.map(lang => (
-                        <span>{lang.logo}</span>
+                        <span key={lang.title}>{lang.logo}</span>
                     ))}
                 </div>
                 <div className={styles.links}>
-                    <a href={item.website}>
-                        <span className={styles.text}>Visit</span>
-                        <span className={styles.icon}><LanguageIcon/></span>
-                    </a>
-                    <a href={item.github}>
-                        <span className={styles.text}>View source code</span>
-                        <span className={styles.icon}><GitHubIcon/></span>
-                    </a>
+                    {item.website && (
+                        <a href={item.website} target="_blank" rel="noopener noreferrer">
+                            <span className={styles.text}>Visit</span>
+                            <span className={styles.icon}><LanguageIcon/></span>
+                        </a>
+                    )}
+                    {item.github && (
+                        <a href={item.github} target="_blank" rel="noopener noreferrer">
+                            <span className={styles.text}>View source code</span>
+                            <span className={styles.icon}><GitHubIcon/></span>
+                        </a>
+                    )}
                 </div>
             </div>
 
             <div className={styles.images}>
-                {item.Images && item.Images.map(image => (
-                    <img src={`/assets/${image}`} key={image}/>
+                {item.Images && item.Images.map((image, index) => (
+                    <img
+                        src={`/assets/${image}`}
+                        alt={`${item.title} screenshot ${index + 1}`}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        onClick={() => setLightboxIndex(index)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') setLightboxIndex(index) }}
+                        key={image}
+                    />
                 ))}
             </div>
         </div>
+
+        {lightboxIndex !== null && (
+            <Lightbox
+                images={item.Images}
+                index={lightboxIndex}
+                basePath="/assets/"
+                title={item.title}
+                onClose={() => setLightboxIndex(null)}
+                onChange={setLightboxIndex}
+            />
+        )}
     </div>
   )
 }

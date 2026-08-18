@@ -4,18 +4,26 @@
         "title": "Novagram",
         "subtitle": "Social media app",
         "description": "Novagram is a social media Instagram clone web app built using React for the Front-end and Flask, SQLAlchemy for the backend. The app is fully functional, you can start by registering for an account then create a post and explore around.",
-        "website": "https://novagram.vercel.app/",
         "github": "https://github.com/spiritnova/Novagram",
         "technologies": ["React", "Flask", "SQLAlchemy"],
         "Images": ["1.png", "2.png", "3.png", "4.png", "5.png", "m1.png", "m2.png", "m3.png"]
     },
     {
         "id": 2,
+        "title": "TechBus",
+        "subtitle": "B2B IT marketplace — Team project",
+        "description": "TechBus is a unified technology ecosystem designed to connect businesses, IT vendors, recruiters, professionals, and training providers through one intelligent network. Instead of operating as isolated platforms, TechBus brings procurement, vendor discovery, talent acquisition, professional development, and learning into a single connected experience.\n\nI was the main frontend contributor on a small team, building the majority of TechBus's React application across all five platforms — the vendor and business quote marketplace, onboarding and dashboards for every user type, billing and subscriptions, and a shared component system that let five differently-branded platforms stay visually consistent as the product grew. Over several months I shipped most of the product's screens end to end, from first login to daily use.",
+        "website": "https://techbus.net",
+        "technologies": ["React", "Javascript", "Vite"]
+    },
+    {
+        "id": 3,
         "title": "Ultimate Game Launcher",
         "subtitle": "Game Store",
         "description": "PROJECT IN PROGRESS | You can check the project progress by visiting the live app from the links below",
         "website": "https://ultimate-game-launcher.vercel.app/",
         "github": "https://github.com/spiritnova/Game-Store-Launcher",
-        "technologies": ["Next"]
+        "technologies": ["Next"],
+        "status": "in-progress"
     }
 ]

@@ -6,10 +6,11 @@ import emailjs from '@emailjs/browser';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { LinkedIn, GitHub } from '@mui/icons-material';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export const ContactMe = () => {
     const form = useRef();
+    const [status, setStatus] = useState('idle') // idle | sending | success | error
 
     let service_id = import.meta.env.VITE_SERVICE_ID
     let template_id = import.meta.env.VITE_TEMPLATE_ID
@@ -17,12 +18,14 @@ export const ContactMe = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
+        setStatus('sending');
 
-        emailjs.sendForm("service_jxfsfyl", "template_sxd8hqh", form.current, 'wL6VorCzQwYCMSEvi')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
+        emailjs.sendForm(service_id, template_id, form.current, public_key)
+        .then(() => {
+            setStatus('success');
+            form.current.reset();
+        }, () => {
+            setStatus('error');
         });
     };
 
@@ -50,7 +53,7 @@ export const ContactMe = () => {
                         <LinkedIn/>
                     </div>
                     <div className={styles.label}>
-                        <a href='https://www.linkedin.com/in/ibrahim-abboud-9a4679209/' target='_blank'>in/ibrahim-abboud-9a4679209</a>
+                        <a href='https://www.linkedin.com/in/ibrahim-abboud-9a4679209/' target='_blank' rel='noopener noreferrer'>in/ibrahim-abboud-9a4679209</a>
                     </div>
                 </div>
                 <div className={styles.row}>
@@ -58,7 +61,7 @@ export const ContactMe = () => {
                         <GitHub/>
                     </div>
                     <div className={styles.label}>
-                        <a href='https://github.com/spiritnova/' target='_blank'>spiritnova</a>
+                        <a href='https://github.com/spiritnova/' target='_blank' rel='noopener noreferrer'>spiritnova</a>
                     </div>
                 </div>
             </div>
@@ -83,11 +86,18 @@ export const ContactMe = () => {
                     </div>
 
                     <div className={styles.button}>
-                        <button type='submit'>
-                            <span>Send</span>
+                        <button type='submit' disabled={status === 'sending'}>
+                            <span>{status === 'sending' ? 'Sending...' : 'Send'}</span>
                             <SendIcon/>
                         </button>
                     </div>
+
+                    {status === 'success' && (
+                        <div className={`${styles.status} ${styles.statusSuccess}`}>Message sent — thanks for reaching out, I'll get back to you soon.</div>
+                    )}
+                    {status === 'error' && (
+                        <div className={`${styles.status} ${styles.statusError}`}>Something went wrong sending your message. Please try again or email me directly.</div>
+                    )}
                 </form>
 
                 <div className={styles.bracket2}>

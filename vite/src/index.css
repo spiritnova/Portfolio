@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
 
 
 :root {
@@ -6,6 +6,7 @@
 
   --background: #0A1828;
   --accent: #deb992;
+  --accent-muted: #BFA181;
   --text: white;
   --text-secondary: black;
   --span: #99da99;
@@ -13,7 +14,14 @@
   --fade: rgb(194, 194, 194);
   --icons: invert(0);
   --about: #2f2f2f;
-  --gradient: linear-gradient(45deg, var(--background), #30313f)
+  --gradient: linear-gradient(45deg, var(--background), #30313f);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
 }
 
 #root{

@@ -13,14 +13,14 @@ export default function About(){
             <div className={styles.aboutme}>
                 <div className={styles.content}>
                     <h2>About Ibrahim Abboud</h2>
-                    <p>I am a 22 years old passionate <b>Fullstack Web developer</b> based in beirut, Lebanon who enjoys building
-                        webapps. Very positive and highly motivated person with over 2 years of experience in building
-                        beautiful websites and web applictions with a stronger focus on the Front-end technologies,
-                        I also have a very high aptitude for learning and adapting to new languages and features.
+                    <p>I'm a <b>Full Stack Web Developer</b> based in Beirut, Lebanon, with over 2 years of experience
+                        building web applications with a stronger focus on front-end technologies. I enjoy turning
+                        ideas into clean, functional products — from planning the architecture to shipping a polished
+                        UI — and I pick up new languages and tools quickly when a project calls for them.
                         <br/>
                         <br/>
-                        Outside work, I continue working on my skills ( languages and design ), then spend the rest of my time with my friends playing games, hiking or eating food
-                        in restaurants.
+                        Outside of client and personal projects, I keep sharpening my skills in new languages and
+                        design tools, and stay involved in the developer community.
                     </p>
                 </div>
             </div>
