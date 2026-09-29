@@ -4,6 +4,7 @@
         "title": "Novagram",
         "subtitle": "Social media app",
         "description": "Novagram is an Instagram-style social media web app. The front end is built with React and the original backend with Flask and SQLAlchemy. The live demo runs on a built-in mock API, so you can register for an account, create a post and explore around without a server.",
+        "website": "https://novagram.vercel.app",
         "github": "https://github.com/spiritnova/Novagram",
         "backend": "https://github.com/spiritnova/Novagram-api",
         "highlights": [
