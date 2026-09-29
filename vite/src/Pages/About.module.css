@@ -20,14 +20,18 @@
 
     position: relative;
     overflow: hidden;
-    background: linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%);
+    background: linear-gradient(45deg, var(--surface-raised) 0%, #24345f 100%);
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
     border-radius: 7px;
 }
 
 
-.content h2{
+.content h1{
     margin-bottom: 1rem;
+    color: white;
+}
+
+.resumeTitle{
     color: white;
 }
 
@@ -43,10 +47,49 @@
 
 
 .buttons{
-    width: 50%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 0.75rem;
     margin-top: 1rem;
+}
+
+.primaryButton,
+.secondaryButton{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform var(--motion-fast), box-shadow var(--motion-standard), color var(--motion-fast), border-color var(--motion-fast);
+}
+
+.primaryButton{
+    background: var(--accent);
+    color: var(--background);
+    box-shadow: 0 6px 24px rgba(222, 185, 146, 0.25);
+}
+
+.primaryButton:hover{
+    color: var(--background);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 34px rgba(222, 185, 146, 0.45);
+}
+
+.secondaryButton{
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-subtle);
+}
+
+.secondaryButton:hover{
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
 }
 
 /*  TECHNOLOGY AREA   */

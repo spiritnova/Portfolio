@@ -17,6 +17,8 @@ import Postgre from '../langs/Postgre'
 import Vsc from '../langs/Vsc'
 import Node from '../langs/Node'
 import Python from '../langs/Python'
+import Sqlalchemy from '../langs/Sqlalchemy'
+import Next from '../langs/Next'
 
 const technologies = [
     {
@@ -78,6 +80,14 @@ const technologies = [
     {
         title: "Mongo",
         logo: <Mongo/>
+    },
+    {
+        title: "SQLAlchemy",
+        logo: <Sqlalchemy/>
+    },
+    {
+        title: "Next",
+        logo: <Next/>
     },
     {
         title: "Postgre",

@@ -35,7 +35,7 @@
 
 .info,
 .form{
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)), #121d30;
     border: 1px solid rgba(222, 185, 146, 0.14);
     border-radius: 18px;
     padding: var(--space-4);
@@ -49,7 +49,7 @@
 
 .infoIntro{
     margin: 0;
-    color: #c4c4c4;
+    color: var(--text-muted);
     font-family: 'Roboto', sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -139,6 +139,12 @@
 .formcontrol textarea:focus{
     border-color: var(--accent);
     background: rgba(222, 185, 146, 0.05);
+}
+
+.formcontrol input:focus-visible,
+.formcontrol textarea:focus-visible{
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .formcontrol textarea{

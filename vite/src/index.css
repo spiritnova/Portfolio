@@ -15,6 +15,12 @@
   --icons: invert(0);
   --about: #2f2f2f;
   --gradient: linear-gradient(45deg, var(--background), #30313f);
+  --surface: #101f34;
+  --surface-raised: #1c2849;
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --text-muted: #c4c4c4;
+  --motion-fast: 200ms;
+  --motion-standard: 300ms;
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -22,6 +28,30 @@
   --space-4: 2rem;
   --space-5: 3rem;
   --space-6: 4rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  *:hover {
+    transform: none !important;
+  }
 }
 
 #root{

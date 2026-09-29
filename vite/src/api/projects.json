@@ -3,19 +3,28 @@
         "id": 1,
         "title": "Novagram",
         "subtitle": "Social media app",
-        "description": "Novagram is a social media Instagram clone web app built using React for the Front-end and Flask, SQLAlchemy for the backend. The app is fully functional, you can start by registering for an account then create a post and explore around.",
+        "description": "Novagram is an Instagram-style social media web app. The front end is built with React and the original backend with Flask and SQLAlchemy. The live demo runs on a built-in mock API, so you can register for an account, create a post and explore around without a server.",
         "github": "https://github.com/spiritnova/Novagram",
+        "backend": "https://github.com/spiritnova/Novagram-api",
+        "highlights": [
+            "Built a full social feed with likes, comments, saves, follows, notifications and search.",
+            "Managed server state with React Query: an infinite-scroll Explore feed, mutations for likes and follows, and targeted cache invalidation so only affected data refetches.",
+            "Designed a responsive UI in plain CSS, with a dedicated mobile navigation and a dark theme, and no CSS framework.",
+            "Originally built with a Flask + SQLAlchemy REST backend and cloud image uploads; the live demo runs on a mock API so it works without a server.",
+            "Built a reusable UI kit (dialogs with focus trapping, buttons, switches, skeletons) and a design-token system with light and dark themes.",
+            "Cut the initial JavaScript by 44% (149 to 85 kB gzipped) with route-level code-splitting and idle prefetching."
+        ],
         "technologies": ["React", "Flask", "SQLAlchemy"],
-        "Images": ["1.png", "2.png", "3.png", "4.png", "5.png", "m1.png", "m2.png", "m3.png"]
+        "Images": ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "m1.webp"]
     },
     {
         "id": 2,
         "title": "TechBus",
-        "subtitle": "B2B IT marketplace — Team project",
+        "subtitle": "B2B IT marketplace - Team project",
         "description": "TechBus is a unified technology ecosystem designed to connect businesses, IT vendors, recruiters, professionals, and training providers through one intelligent network. Instead of operating as isolated platforms, TechBus brings procurement, vendor discovery, talent acquisition, professional development, and learning into a single connected experience.\n\nI was the main frontend contributor on a small team, building the majority of TechBus's React application across all five platforms — the vendor and business quote marketplace, onboarding and dashboards for every user type, billing and subscriptions, and a shared component system that let five differently-branded platforms stay visually consistent as the product grew. Over several months I shipped most of the product's screens end to end, from first login to daily use.",
         "website": "https://techbus.net",
         "technologies": ["React", "Javascript", "Vite"],
-        "Images": ["Techbus/Quote Comparison.png", "Techbus/TechStop.png", "Techbus/TechCrew.png", "Techbus/TechPass Public Profile.png", "Techbus/TechRide.png"]
+        "Images": ["Techbus/Quote Comparison.webp", "Techbus/TechStop.webp", "Techbus/TechCrew.webp", "Techbus/TechPass Public Profile.webp", "Techbus/TechRide.webp"]
     },
     {
         "id": 3,

@@ -18,7 +18,7 @@ export default function Error404() {
         </div>
       </div>
       <div className={styles.error}>
-        <div className={styles.title}>404</div>
+        <h1 className={styles.title}>404</h1>
         <div className={styles.subtitle}>Hey, don't be spooked</div>
         <div className={styles.message}>The page you're looking for doesn't exist. Let's get you back home.</div>
         <div className={styles.buttons}>

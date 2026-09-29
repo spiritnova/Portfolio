@@ -31,7 +31,7 @@
 }
 
 .card{
-    background: #101f34;
+    background: var(--surface);
     border: 1px solid rgba(222, 185, 146, 0.14);
     border-radius: 18px;
     overflow: hidden;
@@ -70,7 +70,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(16, 31, 52, 0) 45%, #101f34 100%);
+    background: linear-gradient(180deg, rgba(16, 31, 52, 0) 45%, var(--surface) 100%);
 }
 
 .mediaFallback{
@@ -166,9 +166,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid var(--border-subtle);
     color: #c4c4c4;
-    transition: border-color 250ms, color 250ms, background-color 250ms;
+    transition: border-color var(--motion-standard), color var(--motion-standard), background-color var(--motion-standard);
 }
 
 .iconLinks a:hover{

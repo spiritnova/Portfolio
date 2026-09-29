@@ -22,6 +22,9 @@ export default function Navbar(){
                     <li className = {styles['nav-link']}>
                         <NavLink to="/about" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>About</NavLink>
                     </li>
+                    <li className = {styles['nav-link']}>
+                        <NavLink to="/contactme" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>Contact</NavLink>
+                    </li>
                 </ul>
 
                 <ul className={styles.quicklinks}>

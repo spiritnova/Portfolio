@@ -8,6 +8,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import GitHub from '@mui/icons-material/GitHub';
 import { useRef, useState } from 'react';
+import useScrollReveal from '../useScrollReveal';
 
 const DISCORD_USERNAME = 'spirit_nova'
 
@@ -21,6 +22,8 @@ function DiscordIcon(props) {
 
 export const ContactMe = () => {
     const form = useRef();
+    const pageRef = useRef(null)
+    useScrollReveal(pageRef)
     const [status, setStatus] = useState('idle') // idle | sending | success | error
     const [discordCopied, setDiscordCopied] = useState(false)
 
@@ -49,12 +52,12 @@ export const ContactMe = () => {
     };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={pageRef}>
         <p className={styles.eyebrow}>let's talk</p>
         <h1 className={styles.heading}>Get In Touch</h1>
 
         <div className={styles.container}>
-            <div className={styles.info}>
+            <div className={styles.info} data-reveal>
                 <p className={styles.infoIntro}>Have a project in mind, an opportunity, or just want to say hi? Reach out through any of these.</p>
 
                 <div className={styles.rows}>
@@ -81,30 +84,30 @@ export const ContactMe = () => {
                 </div>
             </div>
 
-            <form className={styles.form} ref={form} onSubmit={sendEmail}>
+            <form className={styles.form} data-reveal ref={form} onSubmit={sendEmail} aria-busy={status === 'sending'}>
                 <div className={styles.formcontrol}>
-                    <label>Full name</label>
-                    <input type='text' name='user_name' required />
+                    <label htmlFor="user-name">Full name</label>
+                    <input id="user-name" type='text' name='user_name' autoComplete="name" required />
                 </div>
                 <div className={styles.formcontrol}>
-                    <label>Email</label>
-                    <input type='email' name='user_email' required />
+                    <label htmlFor="user-email">Email</label>
+                    <input id="user-email" type='email' name='user_email' autoComplete="email" required />
                 </div>
                 <div className={styles.formcontrol}>
-                    <label>Message</label>
-                    <textarea name='message' required />
+                    <label htmlFor="user-message">Message</label>
+                    <textarea id="user-message" name='message' required />
                 </div>
 
                 <button type='submit' className={styles.submit} disabled={status === 'sending'}>
-                    <span>{status === 'sending' ? 'Sending...' : 'Send message'}</span>
+                    <span aria-live="polite">{status === 'sending' ? 'Sending...' : 'Send message'}</span>
                     <SendIcon fontSize="small" />
                 </button>
 
                 {status === 'success' && (
-                    <div className={`${styles.status} ${styles.statusSuccess}`}>Message sent — thanks for reaching out, I'll get back to you soon.</div>
+                    <div className={`${styles.status} ${styles.statusSuccess}`} role="status" aria-live="polite">Message sent - thanks for reaching out, I'll get back to you soon.</div>
                 )}
                 {status === 'error' && (
-                    <div className={`${styles.status} ${styles.statusError}`}>Something went wrong sending your message. Please try again or email me directly.</div>
+                    <div className={`${styles.status} ${styles.statusError}`} role="alert">Something went wrong sending your message. Please try again or email me directly.</div>
                 )}
             </form>
         </div>

@@ -77,6 +77,8 @@
 .title{
     color: var(--accent);
     font-size: 10rem;
+    line-height: 1;
+    margin: 0;
 }
 
 .subtitle{

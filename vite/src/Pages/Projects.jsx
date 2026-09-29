@@ -1,4 +1,6 @@
+import { useRef } from 'react'
 import Wrapper from '../Components/UI/Wrapper'
+import useScrollReveal from '../Components/useScrollReveal'
 import styles from './Projects.module.css'
 
 import cards from '../api/projects.json'
@@ -9,8 +11,11 @@ import LanguageIcon from '@mui/icons-material/Language';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Projects(){
+    const ref = useRef(null)
+    useScrollReveal(ref)
+
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} ref={ref}>
             <p>view my work</p>
             <h1>Portfolio</h1>
             <div className={styles.cards}>
@@ -18,7 +23,7 @@ export default function Projects(){
                     const cover = card.Images && card.Images[0]
                     return (
                         <Wrapper key={card.id}>
-                            <div className={styles.card}>
+                            <div className={styles.card} data-reveal>
                                 <div className={`${styles.media} ${!cover ? styles.mediaFallback : ''}`}>
                                     {cover
                                         ? <img src={`/assets/${cover}`} alt={`${card.title} preview`} />
