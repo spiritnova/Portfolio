@@ -28,6 +28,26 @@
         "Images": ["Techbus/Quote Comparison.webp", "Techbus/TechStop.webp", "Techbus/TechCrew.webp", "Techbus/TechPass Public Profile.webp", "Techbus/TechRide.webp"]
     },
     {
+        "id": 4,
+        "title": "ImperialJet",
+        "subtitle": "Website redesign",
+        "description": "ImperialJet, a Munich-based private jet charter operator, had a slow WordPress website with a dated, hard-to-use interface. I rebuilt the front end in React to fix both: a quote request flow with airport search, service and safety pages, a fleet section with aircraft detail pages, and a contact page, in light and dark themes.\n\nThe redesign was cancelled before launch, so it was never deployed and there is no live link or public code. The screenshots show the finished front end. The forms use a mock submit because no backend was built, and the photography is free stock (Unsplash) standing in for the company’s own.",
+        "role": "Front-end developer. I rebuilt the site end to end: information architecture, the design system, every page and component, the quote flow, and the performance and accessibility work.",
+        "highlights": [
+            "Replaced the slow, dated WordPress front end with a React single-page app focused on speed, clarity and accessibility.",
+            "Built a three-step quote request flow (route, passengers, details) with per-field validation, focus management between steps, a review summary and a mocked submit.",
+            "Wrote an accessible airport search (ARIA combobox with full keyboard support) over 9,101 airports. The open dataset is converted to a compact JSON at build time and loaded only when a field is first used.",
+            "Created a design system with tokens for colour, type and spacing, with light and dark themes that follow the system setting, remember the choice and apply before first paint so there is no flash.",
+            "Replaced three copy-pasted content pages with one data-driven template (sticky in-page navigation, scroll-spy, fact callouts and a contextual call to action per section).",
+            "Built fleet pages with a lightbox photo viewer using the native dialog element, cabin layouts, a comparison table and a sticky mobile request bar.",
+            "Reached Lighthouse scores of 90-95 for performance (mobile, throttled) and 100 for accessibility, best practices and SEO on the production build.",
+            "Cut the main JavaScript bundle by 38% (155 to 96 kB gzipped) with route-level code splitting, lazy-loaded libraries and inline SVG icons, and reduced the hero image from 8.6 MB to 130 kB with WebP.",
+            "Verified the flows with a scripted browser test of 20 user journeys (search, multi-step form, theme, navigation, lightbox) and a check for horizontal overflow on phones."
+        ],
+        "technologies": ["React", "Javascript", "Vite", "CSS3"],
+        "Images": ["ImperialJet/Home.webp", "ImperialJet/Quote Flow.webp", "ImperialJet/Aircraft.webp", "ImperialJet/About.webp", "ImperialJet/Light Mode.webp", "ImperialJet/Fleet Comparison.webp", "ImperialJet/Mobile.webp"]
+    },
+    {
         "id": 3,
         "title": "Ultimate Game Launcher",
         "subtitle": "Game Store",
