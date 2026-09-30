@@ -1,8 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css'
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { LinkedInIcon, GitHubIcon } from './UI/BrandIcons';
 
 export default function Navbar(){
     return (
@@ -23,7 +22,7 @@ export default function Navbar(){
                         <NavLink to="/about" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>About</NavLink>
                     </li>
                     <li className = {styles['nav-link']}>
-                        <NavLink to="/contactme" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>Contact</NavLink>
+                        <NavLink to="/contact" className= {({ isActive }) => `${isActive ? styles.active : ''} ${styles['nav-items']}`}>Contact</NavLink>
                     </li>
                 </ul>
 

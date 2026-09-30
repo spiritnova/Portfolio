@@ -1,10 +1,8 @@
 import styles from './Project.module.css'
 import projects from '../api/projects.json'
 
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LanguageIcon from '@mui/icons-material/Language';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Globe, ArrowLeft, ArrowRight } from 'lucide-react';
+import { GitHubIcon } from '../Components/UI/BrandIcons';
 
 import { Link, useParams } from 'react-router-dom'
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -43,7 +41,7 @@ export default function Project() {
         <div className={styles.project}>
             <div className={styles.details} data-reveal>
                 <Link to="/projects" className={styles.back}>
-                    <ArrowBackIcon fontSize="inherit" />
+                    <ArrowLeft size="1em" aria-hidden="true" />
                     All projects
                 </Link>
 
@@ -82,19 +80,19 @@ export default function Project() {
                 <div className={styles.links}>
                     {item.website && (
                         <a href={item.website} target="_blank" rel="noopener noreferrer" className={styles.primaryLink}>
-                            <LanguageIcon fontSize="small" />
+                            <Globe size={20} aria-hidden="true" />
                             Visit live site
                         </a>
                     )}
                     {item.github && (
                         <a href={item.github} target="_blank" rel="noopener noreferrer" className={styles.secondaryLink}>
-                            <GitHubIcon fontSize="small" />
+                            <GitHubIcon size={20} />
                             {item.backend ? 'Front-end code' : 'Source code'}
                         </a>
                     )}
                     {item.backend && (
                         <a href={item.backend} target="_blank" rel="noopener noreferrer" className={styles.secondaryLink}>
-                            <GitHubIcon fontSize="small" />
+                            <GitHubIcon size={20} />
                             Back-end code
                         </a>
                     )}
@@ -104,7 +102,7 @@ export default function Project() {
                 <div className={styles.navigation}>
                     {previousProject ? (
                         <Link to={`/projects/${previousProject.id}`} aria-label={`Previous project: ${previousProject.title}`}>
-                            <ArrowBackIcon fontSize="inherit" />
+                            <ArrowLeft size="1em" aria-hidden="true" />
                             <span>
                                 <small>Previous</small>
                                 {previousProject.title}
@@ -117,7 +115,7 @@ export default function Project() {
                                 <small>Next</small>
                                 {nextProject.title}
                             </span>
-                            <ArrowForwardIcon fontSize="inherit" />
+                            <ArrowRight size="1em" aria-hidden="true" />
                         </Link>
                     ) : <span />}
                 </div>

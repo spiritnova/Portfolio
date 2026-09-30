@@ -1,0 +1,41 @@
+[
+    {
+        "company": "TechBus",
+        "context": "B2B, B2C tech marketplace",
+        "role": "Frontend Engineer",
+        "period": "Dec 2025 - Present",
+        "projectId": 2,
+        "tech": ["React 19", "Vite", "React Router 7", "TanStack Query", "Axios", "REST"],
+        "points": [
+            "Built the web client for a 5-platform (IT Vendors, Businesses, IT professionals, Recruiters & Training Centers) marketplace ecosystem in one shared React codebase.",
+            "Built reusable cross-platform modules (dashboard, job board, notification center, billing...) so one implementation serves several platforms.",
+            "Shipped subscription billing, promo/QR redeem codes and a freelancer hiring flow end to end against a REST API.",
+            "Cut the initial JS bundle by about 92% (2.8 MB to 230 KB) with route-level code splitting, self-hosted fonts and image optimization, raising mobile PageSpeed from 59 to 100.",
+            "Used Claude Code as an AI pair programmer for implementation, and owned the architecture, code review, debugging and manual QA of every feature before release."
+        ]
+    },
+    {
+        "company": "ImperialJet Europe GMBH",
+        "role": "Fullstack Engineer",
+        "period": "Nov 2023 - Oct 2025",
+        "projectId": 4,
+        "tech": ["React 18", "Vite", "React Router 6", "CSS"],
+        "points": [
+            "Rebuilt the website of a Munich private jet charter operator in React, replacing a slow, dated WordPress front end: three-step quote flow, fleet and aircraft pages, service and safety content, and contact page, in light and dark themes.",
+            "Developed an accessible airport search (ARIA combobox, full keyboard support) over 9,101 airports, loaded on demand.",
+            "Reached Lighthouse 90-95 performance (mobile) and 100 accessibility, best practices and SEO; cut the main JavaScript bundle 38% (155 to 96 kB gzipped).",
+            "Built a token-based design system with system-aware theming and replaced three duplicated pages with one data-driven template."
+        ]
+    },
+    {
+        "company": "Mövenpick Hotel",
+        "role": "IT Support",
+        "period": "May 2023 - Nov 2023",
+        "tech": ["Javascript"],
+        "points": [
+            "Automated the removal of pool access for weekend-pass holders, replacing a manual process. Wrote a JavaScript script that runs nightly at midnight and filters hundreds of guest records by category, date, time and status, so only expired weekend passes lose access.",
+            "Added logging so the manager could review exactly what the script changed each night.",
+            "Built a web app for the pool and spa manager that turns a slow, hard-to-navigate reporting process into one click. The manager picks a date and gets every guest who entered, how many times each entered and the daily total, filterable by cabana or bracelet guests, ready to print."
+        ]
+    }
+]

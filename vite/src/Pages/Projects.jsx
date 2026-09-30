@@ -6,9 +6,8 @@ import styles from './Projects.module.css'
 import cards from '../api/projects.json'
 import { Link } from 'react-router-dom'
 
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LanguageIcon from '@mui/icons-material/Language';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Globe, ArrowRight } from 'lucide-react'
+import { GitHubIcon } from '../Components/UI/BrandIcons'
 
 export default function Projects(){
     const ref = useRef(null)
@@ -43,18 +42,18 @@ export default function Projects(){
                                         <div className={styles.iconLinks}>
                                             {card.github && (
                                                 <a href={card.github} target="_blank" rel="noopener noreferrer" aria-label={`${card.title} GitHub repository`}>
-                                                    <GitHubIcon fontSize="small" />
+                                                    <GitHubIcon size={20} />
                                                 </a>
                                             )}
                                             {card.website && (
                                                 <a href={card.website} target="_blank" rel="noopener noreferrer" aria-label={`${card.title} live site`}>
-                                                    <LanguageIcon fontSize="small" />
+                                                    <Globe size={20} aria-hidden="true" />
                                                 </a>
                                             )}
                                         </div>
                                         <Link to={`/projects/${card.id}`} className={styles.detailsLink}>
                                             Details
-                                            <ArrowForwardIcon fontSize="inherit" />
+                                            <ArrowRight size="1em" aria-hidden="true" />
                                         </Link>
                                     </div>
                                 </div>

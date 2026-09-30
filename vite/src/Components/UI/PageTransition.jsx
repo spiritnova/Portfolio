@@ -8,7 +8,7 @@ const TITLES = {
     '/': 'Ibrahim Abboud — Full Stack Web Developer',
     '/projects': `Projects | ${SITE}`,
     '/about': `About | ${SITE}`,
-    '/contactme': `Contact | ${SITE}`,
+    '/contact': `Contact | ${SITE}`,
 }
 
 function titleFor(pathname){

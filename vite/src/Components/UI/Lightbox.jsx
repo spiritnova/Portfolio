@@ -2,9 +2,7 @@ import { useEffect, useRef } from 'react'
 import ReactDom from 'react-dom'
 import styles from './Lightbox.module.css'
 
-import CloseIcon from '@mui/icons-material/Close'
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function Lightbox({ images, index, basePath, title, onClose, onChange }) {
     const closeRef = useRef(null)
@@ -57,12 +55,12 @@ export default function Lightbox({ images, index, basePath, title, onClose, onCh
 
             <div className={styles.dialog} role="dialog" aria-modal="true" aria-label={`${title} screenshots`}>
                 <button ref={closeRef} className={styles.close} type="button" onClick={onClose} aria-label="Close image viewer">
-                    <CloseIcon />
+                    <X size={24} />
                 </button>
 
                 {hasMultiple && (
                     <button className={`${styles.nav} ${styles.prev}`} type="button" onClick={() => onChange((index - 1 + images.length) % images.length)} aria-label="Previous image">
-                        <ChevronLeftIcon fontSize="large" />
+                        <ChevronLeft size={35} />
                     </button>
                 )}
 
@@ -78,7 +76,7 @@ export default function Lightbox({ images, index, basePath, title, onClose, onCh
 
                 {hasMultiple && (
                     <button className={`${styles.nav} ${styles.next}`} type="button" onClick={() => onChange((index + 1) % images.length)} aria-label="Next image">
-                        <ChevronRightIcon fontSize="large" />
+                        <ChevronRight size={35} />
                     </button>
                 )}
             </div>

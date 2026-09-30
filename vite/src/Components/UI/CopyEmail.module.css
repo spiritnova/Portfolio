@@ -1,0 +1,67 @@
+.email{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    max-width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-align: left;
+    cursor: pointer;
+}
+
+.xl{
+    font-size: clamp(1rem, 4.6vw, 3.1rem);
+}
+
+.lg{
+    font-size: clamp(1rem, 4.2vw, 2.4rem);
+}
+
+.address{
+    overflow-wrap: anywhere;
+    background: linear-gradient(var(--accent), var(--accent)) no-repeat left bottom / 0% 2px;
+    padding-bottom: 0.08em;
+    transition: background-size var(--motion-standard), color var(--motion-fast);
+}
+
+.email:hover .address,
+.email:focus-visible .address{
+    color: var(--accent);
+    background-size: 100% 2px;
+}
+
+.icon{
+    flex-shrink: 0;
+    display: inline-flex;
+    color: var(--fade);
+    transition: color var(--motion-fast), transform var(--motion-fast);
+}
+
+.email:hover .icon{
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.icon.done{
+    color: var(--span);
+}
+
+/* sits just above the copy icon, like a tooltip */
+.toast{
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: normal;
+    color: var(--span);
+}

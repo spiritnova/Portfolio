@@ -4,7 +4,9 @@ import useScrollReveal from '../Components/useScrollReveal'
 import pdf from '/assets/Ibrahim Abboud Resume.pdf'
 import { Download, Eye } from 'lucide-react'
 
+import { Link } from 'react-router-dom'
 import technologies from './Technologies'
+import experience from '../api/experience.json'
 
 export default function About(){
     const ref = useRef(null)
@@ -25,6 +27,36 @@ export default function About(){
                         design tools, and stay involved in the developer community.
                     </p>
                 </div>
+            </div>
+
+            <div className={styles.experience}>
+                <h2 className={styles.title} data-reveal>Experience</h2>
+                <ol className={styles.timeline}>
+                    {experience.map(job => (
+                        <li className={styles.job} key={job.company} data-reveal>
+                            <div className={styles.jobHead}>
+                                <div>
+                                    <h3>{job.role}</h3>
+                                    <p className={styles.company}>
+                                        {job.company}{job.context && <span> ({job.context})</span>}
+                                    </p>
+                                </div>
+                                <span className={styles.period}>{job.period}</span>
+                            </div>
+                            <ul className={styles.points}>
+                                {job.points.map(point => <li key={point}>{point}</li>)}
+                            </ul>
+                            <div className={styles.jobFoot}>
+                                <div className={styles.chips}>
+                                    {job.tech.map(t => <span className={styles.chip} key={t}>{t}</span>)}
+                                </div>
+                                {job.projectId && (
+                                    <Link to={`/projects/${job.projectId}`} className={styles.caseLink}>View project</Link>
+                                )}
+                            </div>
+                        </li>
+                    ))}
+                </ol>
             </div>
 
             <div className={styles.tech}>

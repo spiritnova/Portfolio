@@ -3,7 +3,7 @@
 	color: white;
 	position: relative;
 	overflow: hidden;
-	min-height: 90vh;
+	min-height: 82vh;
 
 	display: flex;
 	align-items: center;
@@ -41,6 +41,33 @@
     margin-bottom: 2rem;
 }
 
+.available{
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 1.25rem;
+	padding: 0.35rem 0.85rem;
+	border: 1px solid rgba(153, 218, 153, 0.35);
+	border-radius: 999px;
+	background: rgba(153, 218, 153, 0.08);
+	color: var(--span);
+	font-size: 0.8rem;
+	font-weight: 500;
+}
+
+.dot{
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--span);
+	box-shadow: 0 0 0 0 rgba(153, 218, 153, 0.6);
+	animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse{
+	to{ box-shadow: 0 0 0 8px rgba(153, 218, 153, 0); }
+}
+
 .greeting{
 	margin-bottom: 0.5rem;
 	color: var(--text-muted);
@@ -49,6 +76,14 @@
 .texts h1{
 	font-size: 2em;
 	line-height: 1.4;
+}
+
+.tagline{
+	margin-top: 1rem;
+	max-width: 34rem;
+	font-size: 0.85em;
+	line-height: 1.6;
+	color: var(--text-muted);
 }
 
 .mask{
@@ -167,54 +202,6 @@
 	transform: translateY(-3px);
 }
 
-.workWrap{
-	position: relative;
-}
-
-.preview{
-	position: absolute;
-	bottom: calc(100% + 14px);
-	left: 0;
-	width: 16rem;
-	padding: 0.9rem 1rem;
-	display: flex;
-	flex-direction: column;
-	gap: 0.7rem;
-	background: var(--surface);
-	border: 1px solid var(--border-subtle);
-	border-radius: 14px;
-	box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-	opacity: 0;
-	transform: translateY(8px);
-	pointer-events: none;
-	transition: opacity var(--motion-standard), transform var(--motion-standard);
-	z-index: 5;
-}
-
-.workWrap:hover .preview,
-.workWrap:focus-within .preview{
-	opacity: 1;
-	transform: none;
-}
-
-.previewHead{
-	font-size: 0.7rem;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: var(--accent);
-}
-
-.previewItem{
-	display: flex;
-	flex-direction: column;
-	font-size: 0.85rem;
-}
-
-.previewItem span{
-	font-size: 0.75rem;
-	color: var(--fade);
-}
-
 .copyButton{
 	position: relative;
 	width: 48px;
@@ -301,6 +288,85 @@
 	border-radius: 4px;
 }
 
+.work{
+	max-width: 70rem;
+	margin: 0 auto;
+	padding: 0 var(--space-4);
+	color: var(--text);
+}
+
+.workHeader{
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: var(--space-2);
+	margin-bottom: var(--space-3);
+}
+
+.workHeader h2{
+	font-size: 2rem;
+}
+
+.workEyebrow{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin-bottom: 0.25rem;
+}
+
+.allLink{
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	color: var(--accent);
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.allLink:hover{
+	color: var(--accent);
+	text-decoration: underline;
+}
+
+.workGrid{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--space-4);
+}
+
+.workCard,
+.workCard:hover{
+	color: var(--text);
+}
+
+.workSummary{
+	color: var(--text-muted);
+	font-size: 0.9rem;
+	line-height: 1.6;
+}
+
+.caseStudy{
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	margin-top: auto;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	color: var(--accent);
+	font-size: 0.85rem;
+	font-weight: 500;
+}
+
+.workCard:hover .caseStudy svg{
+	transform: translateX(3px);
+}
+
+.caseStudy svg{
+	transition: transform var(--motion-standard);
+}
+
 .backdrop{
     position: fixed;
     top: 0;
@@ -328,5 +394,13 @@
 
 	.stack{
 		justify-content: center;
+	}
+
+	.work{
+		padding: 0 var(--space-2);
+	}
+
+	.workHeader h2{
+		font-size: 1.6rem;
 	}
 }
