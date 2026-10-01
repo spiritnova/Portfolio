@@ -12,7 +12,7 @@ export default function useScrollReveal(ref){
         const ctx = gsap.context(() => {
             gsap.set('[data-reveal]', { opacity: 0, y: 32 })
             ScrollTrigger.batch('[data-reveal]', {
-                start: 'top 90%',
+                start: 'top bottom',
                 once: true,
                 onEnter: batch => gsap.to(batch, {
                     opacity: 1,
