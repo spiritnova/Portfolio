@@ -18,13 +18,13 @@ export default function About(){
                 <div className={styles.content}>
                     <h1>About Ibrahim Abboud</h1>
                     <p>I'm a <b>Full Stack Web Developer</b> based in Beirut, Lebanon, with over 3 years of experience
-                        building web applications with a stronger focus on front-end technologies. I enjoy turning
-                        ideas into clean, functional products, from planning the architecture to shipping a polished
-                        UI, and I pick up new languages and tools quickly when a project calls for them.
+                        building web applications, mostly on the front end.
                         <br/>
                         <br/>
-                        Outside of client and personal projects, I keep sharpening my skills in new languages and
-                        design tools, and stay involved in the developer community.
+                        What I love most about this work is taking someone's problem and turning it into something
+                        that actually solves it. I like sitting down with what people need, figuring out the right way
+                        to build it, and then seeing them use it. That's the part that never gets old for me, whether
+                        I'm planning the architecture or polishing the last bit of UI.
                     </p>
                 </div>
             </div>
