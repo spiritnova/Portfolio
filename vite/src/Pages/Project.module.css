@@ -67,7 +67,8 @@
     align-items: center;
     gap: 0.4rem;
     align-self: flex-start;
-    margin-bottom: 1.5rem;
+    padding: 0.6rem 0;
+    margin: -0.6rem 0 0.9rem;
     font-size: 0.9rem;
     color: var(--fade);
     transition: color var(--motion-fast);
@@ -248,6 +249,12 @@
 
     .images{
         columns: 2 16rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .project{
+        padding: var(--space-3) var(--space-2);
     }
 }
 

@@ -95,10 +95,6 @@ export default function Home(){
                             <span className={styles.statNumber}>{finishedProjects.length}</span>
                             <span className={styles.statLabel}>Projects Built</span>
                         </div>
-                        <div className={styles.stat}>
-                            <span className={styles.statNumber}>5</span>
-                            <span className={styles.statLabel}>Platforms Built at TechBus</span>
-                        </div>
                     </div>
 
                     <div className={styles.stack}>

@@ -5,7 +5,7 @@ import projects from '../../api/projects.json'
 
 const SITE = 'Ibrahim Abboud'
 const TITLES = {
-    '/': 'Ibrahim Abboud — Full Stack Web Developer',
+    '/': 'Ibrahim Abboud - Full Stack Web Developer',
     '/projects': `Projects | ${SITE}`,
     '/about': `About | ${SITE}`,
     '/contact': `Contact | ${SITE}`,

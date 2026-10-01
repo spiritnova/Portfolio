@@ -19,8 +19,8 @@ export default function About(){
                     <h1>About Ibrahim Abboud</h1>
                     <p>I'm a <b>Full Stack Web Developer</b> based in Beirut, Lebanon, with over 3 years of experience
                         building web applications with a stronger focus on front-end technologies. I enjoy turning
-                        ideas into clean, functional products — from planning the architecture to shipping a polished
-                        UI — and I pick up new languages and tools quickly when a project calls for them.
+                        ideas into clean, functional products, from planning the architecture to shipping a polished
+                        UI, and I pick up new languages and tools quickly when a project calls for them.
                         <br/>
                         <br/>
                         Outside of client and personal projects, I keep sharpening my skills in new languages and

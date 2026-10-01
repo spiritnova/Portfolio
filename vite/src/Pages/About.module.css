@@ -239,8 +239,23 @@
     color: var(--accent);
     font-weight: 600;
     font-size: 0.95rem;
+    padding: 0.6rem 0;
+    margin: -0.6rem 0;
 }
 
 .caseLink:hover{
     text-decoration: underline;
+}
+
+@media screen and (max-width: 600px){
+    .aboutme,
+    .container,
+    .tech,
+    .experience{
+        padding: 0 var(--space-2);
+    }
+
+    .content{
+        padding: var(--space-3);
+    }
 }

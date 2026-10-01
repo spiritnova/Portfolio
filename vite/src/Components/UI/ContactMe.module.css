@@ -26,7 +26,9 @@
     width: fit-content;
     align-items: center;
     gap: 0.3rem;
-    margin-top: var(--space-2);
+    padding: 0.6rem 0;
+    margin-top: calc(var(--space-2) - 0.6rem);
+    margin-bottom: -0.6rem;
     color: var(--fade);
     font-size: 0.9rem;
     transition: color var(--motion-fast);

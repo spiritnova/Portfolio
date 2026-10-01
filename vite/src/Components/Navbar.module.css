@@ -137,11 +137,30 @@
     }
 
     .quicklinks li{
-        margin-right: 0.25rem;
+        margin-right: 0;
+    }
+
+    .quicklinks a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .quicklinks svg{
         font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .nav-items{
+        padding: 0.75rem 0.2rem;
+        font-size: 0.8rem;
+    }
+
+    .quicklinks a{
+        min-width: 40px;
     }
 }
 
