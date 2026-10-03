@@ -93,13 +93,39 @@
     {
         "id": 3,
         "title": "Ultimate Game Launcher",
-        "subtitle": "Game Store",
-        "description": "PROJECT IN PROGRESS | You can check the project progress by visiting the live app from the links below",
+        "subtitle": "PC game store and launcher",
+        "description": "A game launcher in the style of Steam and Epic. There's a store where you find and buy games, and a library where you install, update and play them. The 103 games in the catalog are real ones, pulled from Steam's public store pages along with their DLC, editions and age ratings.\n\nNothing is actually for sale. Accounts, purchases, downloads and friends are all simulated and saved in your browser, so there's no backend. Log in as the demo player and click around.",
         "website": "https://ultimate-game-launcher.vercel.app/",
         "github": "https://github.com/spiritnova/Game-Store-Launcher",
-        "technologies": [
-            "Next"
+        "role": "Solo project. I did the design and all of the code, including the scripts that import the catalog from Steam.",
+        "highlights": [
+            "Wrote Node scripts that pull games, screenshots, DLC and ESRB/PEGI ratings from Steam's store API. That's how the catalog got to 103 games and 145 DLC without typing any of it in.",
+            "Browse filters (genre, player modes, price) live in the URL, so you can send someone a link to a filtered view.",
+            "Game pages are static and rebuild every hour. An upcoming game becomes playable on its release day without a redeploy.",
+            "Checkout handles editions, bundles, coupons, gifts and upgrading to a higher edition. Refunds use Steam's rule: under 2 hours played and within 14 days.",
+            "The downloads are fake, but the download manager works like a real one. You can reorder the queue, pause and resume, and watch the speed graph and time left.",
+            "You can add friends and message them. Demo players reply after a few seconds, and the reply depends on what you sent.",
+            "Download progress updates twice a second, so it has its own React context. In the main store it would re-render the whole app.",
+            "Passwords are stored as salted SHA-256 hashes, even though everything stays on your machine.",
+            "Pricing, refunds, coupons and release dates are covered by unit tests (Vitest)."
         ],
-        "status": "in-progress"
+        "technologies": [
+            "Next",
+            "React",
+            "Javascript",
+            "CSS3"
+        ],
+        "Images": [
+            "Game Launcher/Discover.webp",
+            "Game Launcher/Game Page.webp",
+            "Game Launcher/Library.webp",
+            "Game Launcher/Downloads.webp",
+            "Game Launcher/Messages.webp",
+            "Game Launcher/Browse.webp",
+            "Game Launcher/Cart.webp",
+            "Game Launcher/Player Profile.webp",
+            "Game Launcher/Light Mode.webp",
+            "Game Launcher/Mobile.webp"
+        ]
     }
 ]
