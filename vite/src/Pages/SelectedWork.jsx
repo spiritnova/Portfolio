@@ -31,6 +31,7 @@ export default function SelectedWork(){
                     <Link to={`/projects/${project.id}`} className={`${cardStyles.card} ${styles.workCard}`} key={project.id} data-reveal>
                         <div className={cardStyles.media}>
                             <img src={`/assets/${project.Images[0]}`} alt="" loading="lazy" />
+                            {project.type && <span className={cardStyles.typeTag}>{project.type}</span>}
                         </div>
                         <div className={cardStyles.body}>
                             <span className={cardStyles.eyebrow}>{project.subtitle}</span>

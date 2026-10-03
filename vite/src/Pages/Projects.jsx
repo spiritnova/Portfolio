@@ -29,6 +29,7 @@ export default function Projects(){
                                         : <span className={styles.monogram} aria-hidden="true">{card.title[0]}</span>
                                     }
                                     {card.status === 'in-progress' && <span className={styles.badge}>In Progress</span>}
+                                    {card.type && <span className={styles.typeTag}>{card.type}</span>}
                                 </div>
                                 <div className={styles.body}>
                                     <span className={styles.eyebrow}>{card.subtitle}</span>

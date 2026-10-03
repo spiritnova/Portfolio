@@ -45,7 +45,9 @@ export default function Project() {
                     All projects
                 </Link>
 
-                {item.subtitle && <span className={styles.eyebrow}>{item.subtitle}</span>}
+                {(item.type || item.subtitle) && (
+                    <span className={styles.eyebrow}>{[item.type, item.subtitle].filter(Boolean).join(' · ')}</span>
+                )}
                 <h1>{item.title}</h1>
                 <p className={styles.description}>{item.description}</p>
 
