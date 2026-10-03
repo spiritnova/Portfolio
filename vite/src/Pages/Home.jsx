@@ -1,11 +1,12 @@
 import styles from './Home.module.css'
 import { Link } from 'react-router-dom'
-import { Fragment, lazy, Suspense, useLayoutEffect, useRef, useState } from 'react'
+import { Fragment, lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ArrowRight, Copy, Check } from 'lucide-react'
 import projects from '../api/projects.json'
 import technologies from './Technologies'
 import { EMAIL } from '../api/contact'
+import Nebula from '../Components/UI/Nebula'
 
 const SelectedWork = lazy(() => import('./SelectedWork'))
 
@@ -33,6 +34,7 @@ function release(e){
 export default function Home(){
     const [copied, setCopied] = useState(false)
     const headingRef = useRef(null)
+    const cueRef = useRef(null)
 
     useLayoutEffect(() => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -48,6 +50,15 @@ export default function Home(){
         return () => ctx.revert()
     }, [])
 
+    // the scroll cue has done its job once you start scrolling
+    useEffect(() => {
+        const cue = cueRef.current
+        const onScroll = () => cue.classList.toggle(styles.cueHidden, window.scrollY > 40)
+        onScroll()
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
     function copyEmail(){
         navigator.clipboard.writeText(EMAIL).then(() => {
             setCopied(true)
@@ -58,7 +69,7 @@ export default function Home(){
     return (
         <>
         <div className={styles.wrapper}>
-            <div className={styles.glow} aria-hidden="true"></div>
+            <Nebula/>
             <div className={styles.container}>
                 <div className={styles.info}>
                     <div className={styles.texts} ref={headingRef}>
@@ -67,9 +78,9 @@ export default function Home(){
                             Available for new projects
                         </p>
                         <p className={styles.greeting}>Hey there,</p>
-                        <h1>my name is Ibrahim Abboud.<br />I am a <span className={styles.accent}>{['Full', 'Stack', 'Web', 'Developer'].map(word => (
+                        <h1>my name is Ibrahim Abboud.{' '}<br />I am a <span className={styles.accent}>{['Full', 'Stack', 'Web', 'Developer'].map(word => (
                             <Fragment key={word}><span className={styles.mask}><span className={styles.word}>{word}</span></span>{' '}</Fragment>
-                        ))}</span> based<br />in Beirut, Lebanon.</h1>
+                        ))}</span> based{' '}<br />in Beirut, Lebanon.</h1>
                         <p className={styles.tagline}>I love turning real problems into solutions people actually enjoy using. With React, I can build just about anything.</p>
                     </div>
                     <div className={`${styles.buttons} ${styles.reveal}`} style={{ '--d': '120ms' }}>
@@ -106,6 +117,11 @@ export default function Home(){
                     </div>
                 </div>
             </div>
+
+            <a href="#worked-at" className={styles.scrollCue} ref={cueRef}>
+                <span className={styles.mouse} aria-hidden="true"><span></span></span>
+                Scroll
+            </a>
         </div>
 
         <Suspense fallback={null}>

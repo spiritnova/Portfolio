@@ -1,0 +1,253 @@
+.services{
+    --size: 150px;
+    max-width: 70rem;
+    margin: var(--space-6) auto 0;
+    padding: 0 var(--space-4);
+    color: var(--text);
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+}
+
+.eyebrow{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.intro{
+    max-width: 52rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+}
+
+.service{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+}
+
+/* ---------- the planet system ---------- */
+
+.system{
+    position: relative;
+    flex-shrink: 0;
+    width: 300px;
+    height: 260px;
+}
+
+.globe{
+    position: absolute;
+    left: calc(150px - var(--size) / 2);
+    top: calc(130px - var(--size) / 2);
+    z-index: 2;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    /* atmosphere, stronger on the lit (upper left) side */
+    box-shadow: -10px -8px 34px -4px var(--atmo), 0 0 70px -14px var(--atmo);
+}
+
+.surface{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* two copies of the texture side by side, slid left by one copy: a seamless turn */
+.map{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--size) * 4);
+    height: 100%;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    animation: spin 70s linear infinite;
+    will-change: transform;
+}
+
+@keyframes spin{
+    to{ transform: translateX(calc(var(--size) * -2)); }
+}
+
+/* sunlight from the upper left: a soft highlight, the shadow line, a dark night side and a lit rim */
+.shade{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 27% 25%, rgba(255, 255, 255, 0.28) 0, rgba(255, 255, 255, 0) 26%),
+        radial-gradient(circle at 34% 31%, rgba(3, 2, 10, 0) 0, rgba(3, 2, 10, 0) 36%, rgba(3, 2, 10, 0.7) 60%, rgba(3, 2, 10, 0.98) 80%);
+    box-shadow: inset 5px 5px 9px -3px var(--rim), inset -8px -8px 26px rgba(0, 0, 0, 0.55);
+}
+
+.ring{
+    position: absolute;
+    left: -10px;
+    top: 105px;
+    width: 320px;
+    height: 50px;
+    border-radius: 50%;
+    transform: rotate(-14deg);
+    background: radial-gradient(ellipse at center, transparent 52%, rgba(225, 215, 255, 0.55) 56%, rgba(190, 170, 245, 0.22) 62%, rgba(160, 140, 230, 0.4) 65%, transparent 71%);
+}
+
+.orbit{
+    position: absolute;
+    left: 0;
+    top: 90px;
+    width: 300px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px dashed var(--line);
+    transform: rotate(var(--tilt));
+}
+
+/* the far half sits behind the planet, the near half in front */
+.back{
+    clip-path: inset(0 0 50% 0);
+    z-index: 1;
+}
+
+.front{
+    clip-path: inset(50% 0 0 0);
+    z-index: 3;
+}
+
+.moons{
+    position: absolute;
+    left: 0;
+    top: 90px;
+    width: 300px;
+    height: 80px;
+}
+
+.moon{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    offset-path: var(--path);
+    offset-rotate: 0deg;
+    offset-anchor: 5px 50%;
+    animation: orbit 26s linear infinite, depth 26s linear infinite;
+}
+
+@keyframes orbit{
+    from{ offset-distance: 0%; }
+    to{ offset-distance: 100%; }
+}
+
+/* first half of the orbit is the far side: behind the planet and dimmer */
+@keyframes depth{
+    0%, 49.9%{ z-index: 1; opacity: 0.45; }
+    50%, 100%{ z-index: 4; opacity: 1; }
+}
+
+.moonDot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffffff, #c9c4dd 60%, #6b6585);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.moonLabel{
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid;
+    background: rgba(12, 10, 31, 0.85);
+}
+
+/* ---------- text ---------- */
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.title{
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.description{
+    max-width: 22rem;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.srOnly{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* tablets: one service per row, planet beside the text */
+@media (max-width: 1100px){
+    .grid{
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .service{
+        flex-direction: row;
+        text-align: left;
+        gap: var(--space-4);
+    }
+
+    .description{
+        margin: 0;
+        max-width: 34rem;
+    }
+}
+
+/* phones: back to stacked and centred, with a slightly smaller planet */
+@media (max-width: 700px){
+    .services{
+        --size: 130px;
+        padding: 0 var(--space-2);
+    }
+
+    .service{
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-1);
+    }
+
+    .description{
+        margin: 0 auto;
+    }
+}

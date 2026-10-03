@@ -1,0 +1,207 @@
+.workedAt{
+    max-width: 70rem;
+    margin: var(--space-3) auto 0;
+    padding: 0 var(--space-4);
+    color: var(--text);
+    scroll-margin-top: var(--space-4);
+}
+
+.label{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+}
+
+/* the orbit: a curve that mirrors the planet's horizon above it */
+.orbit{
+    position: relative;
+    height: 17rem;
+    margin-top: var(--space-2);
+}
+
+.path{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+}
+
+.trail{
+    stroke: rgba(196, 181, 253, 0.1);
+    stroke-width: 10;
+}
+
+.dots{
+    stroke: rgba(196, 181, 253, 0.3);
+    stroke-width: 1.2;
+    stroke-dasharray: 2 7;
+}
+
+.comet{
+    position: absolute;
+    left: 3%;
+    top: 90%;
+    z-index: 1;
+    width: 90px;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, rgba(196, 181, 253, 0), rgba(249, 168, 212, 0.6) 60%, #ffffff);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+    transform-origin: 100% 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.stops{
+    list-style: none;
+}
+
+.stop{
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+}
+
+.dot{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    background: var(--accent);
+    opacity: 0.35;
+    transition: transform 500ms cubic-bezier(.3, 1.6, .5, 1), opacity 400ms ease, box-shadow 400ms ease;
+}
+
+.text{
+    position: absolute;
+    top: 1.1rem;
+    left: 0;
+    width: 17rem;
+    transform: translateX(-50%);
+    padding: 0.4rem 0 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: center;
+    /* keeps the dotted path from running through the words */
+    background: radial-gradient(closest-side, rgba(5, 4, 15, 0.95), rgba(5, 4, 15, 0));
+    opacity: 0.35;
+    transition: opacity 600ms ease;
+}
+
+.company{
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.role{
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.now{
+    color: var(--span);
+}
+
+.lit .dot{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    box-shadow: 0 0 16px 3px rgba(196, 181, 253, 0.7);
+}
+
+.lit .text{
+    opacity: 1;
+}
+
+/* the current job keeps a soft green pulse once it's lit */
+.current .dot{
+    background: var(--span);
+}
+
+.current.lit .dot{
+    box-shadow: 0 0 18px 4px rgba(110, 231, 183, 0.6);
+    animation: here 2s ease-in-out 0.6s infinite;
+}
+
+@keyframes here{
+    0%, 100%{ box-shadow: 0 0 0 0 rgba(110, 231, 183, 0.55), 0 0 18px 4px rgba(110, 231, 183, 0.6); }
+    50%{ box-shadow: 0 0 0 12px rgba(110, 231, 183, 0), 0 0 18px 4px rgba(110, 231, 183, 0.6); }
+}
+
+/* phones: the orbit turns into a path running down the screen */
+@media (max-width: 760px){
+    .label{
+        text-align: left;
+    }
+
+    .orbit{
+        height: auto;
+        margin-top: var(--space-3);
+    }
+
+    .path,
+    .comet{
+        display: none;
+    }
+
+    .stops{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        padding-left: 2rem;
+    }
+
+    /* dotted line that connects the stops */
+    .stops::before{
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 0.6rem;
+        bottom: 0.6rem;
+        border-left: 1.5px dotted rgba(196, 181, 253, 0.35);
+    }
+
+    .stop{
+        position: relative;
+        left: auto;
+        top: auto;
+    }
+
+    .dot{
+        left: -2rem;
+        top: 0.6rem;
+        transform: translate(-1px, -50%) scale(0.6);
+    }
+
+    .lit .dot{
+        transform: translate(-1px, -50%) scale(1);
+    }
+
+    .text{
+        position: static;
+        width: auto;
+        transform: none;
+        padding: 0;
+        align-items: flex-start;
+        text-align: left;
+        background: none;
+    }
+}
+
+@media (max-width: 600px){
+    .workedAt{
+        padding: 0 var(--space-2);
+    }
+}

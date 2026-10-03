@@ -10,7 +10,7 @@
     background: none;
     border: none;
     color: var(--text);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.02em;

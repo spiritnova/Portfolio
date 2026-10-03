@@ -1,24 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
 
 :root {
-  font-family: 'Poppins', sans-serif;
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  font-family: var(--font-body);
 
-  --background: #0A1828;
-  --accent: #deb992;
-  --accent-muted: #BFA181;
+  --background: #05040f;
+  --accent: #c4b5fd;
+  --accent-muted: #a78bfa;
+  --nebula-pink: #f9a8d4;
+  --nebula-teal: #99f6e4;
   --text: white;
   --text-secondary: black;
-  --span: #99da99;
+  --span: #6ee7b7;
   --cardBtn: #242424;
-  --fade: rgb(194, 194, 194);
+  --fade: #b9b3d1;
   --icons: invert(0);
   --about: #2f2f2f;
-  --gradient: linear-gradient(45deg, var(--background), #30313f);
-  --surface: #101f34;
-  --surface-raised: #1c2849;
+  --gradient: linear-gradient(45deg, var(--background), #120a2e);
+  --surface: #0c0a1f;
+  --surface-raised: #17123a;
   --border-subtle: rgba(255, 255, 255, 0.14);
-  --text-muted: #c4c4c4;
+  --text-muted: #cfc9e6;
   --motion-fast: 200ms;
   --motion-standard: 300ms;
 
@@ -28,6 +32,14 @@
   --space-4: 2rem;
   --space-5: 3rem;
   --space-6: 4rem;
+}
+
+h1,
+h2,
+h3{
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 a:focus-visible,

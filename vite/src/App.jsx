@@ -5,7 +5,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { lazy, Suspense } from 'react'
 import Home from './Pages/Home'
 import Error404 from './Components/UI/Error404'
-import GridBackground from './Components/UI/GridBackground'
+import Starfield from './Components/UI/Starfield'
 import PageTransition from './Components/UI/PageTransition'
 import PageMeta from './Components/UI/PageMeta'
 
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <PageMeta/>
-      <GridBackground/>
+      <Starfield/>
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Navbar/>
         <PageTransition>

@@ -99,7 +99,7 @@
     max-width: 65ch;
     line-height: 1.75;
     letter-spacing: 0.2px;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-body);
     white-space: pre-line;
     color: var(--text-muted);
 }
@@ -134,7 +134,7 @@
     font-size: 0.85rem;
     border: 1px solid var(--border-subtle);
     border-radius: 999px;
-    background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #141f33;
+    background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #120e2a;
 }
 
 .tech svg{
@@ -169,13 +169,13 @@
 .primaryLink{
     background: var(--accent);
     color: var(--background);
-    box-shadow: 0 6px 24px rgba(222, 185, 146, 0.25);
+    box-shadow: 0 6px 24px rgba(196, 181, 253, 0.25);
 }
 
 .primaryLink:hover{
     color: var(--background);
     transform: translateY(-3px);
-    box-shadow: 0 12px 34px rgba(222, 185, 146, 0.45);
+    box-shadow: 0 12px 34px rgba(196, 181, 253, 0.45);
 }
 
 .secondaryLink{

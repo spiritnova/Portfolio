@@ -7,10 +7,14 @@ import { Download, Eye } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import technologies from './Technologies'
 import experience from '../api/experience.json'
+import useBeirutTime from '../Components/useBeirutTime'
+
+const current = experience.find(job => job.period.includes('Present'))
 
 export default function About(){
     const ref = useRef(null)
     useScrollReveal(ref)
+    const time = useBeirutTime()
 
     return (
         <div className={styles.about} ref={ref}>
@@ -26,6 +30,27 @@ export default function About(){
                         to build it, and then seeing them use it. That's the part that never gets old for me, whether
                         I'm planning the architecture or polishing the last bit of UI.
                     </p>
+
+                    <dl className={styles.facts}>
+                        <div className={styles.fact}>
+                            <dt>Based in</dt>
+                            <dd>Beirut, Lebanon</dd>
+                        </div>
+                        <div className={styles.fact}>
+                            <dt>Local time</dt>
+                            <dd>{time}</dd>
+                        </div>
+                        {current && (
+                            <div className={styles.fact}>
+                                <dt>Currently</dt>
+                                <dd>{current.role} at {current.company}</dd>
+                            </div>
+                        )}
+                        <div className={styles.fact}>
+                            <dt>Experience</dt>
+                            <dd>3+ years</dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
 

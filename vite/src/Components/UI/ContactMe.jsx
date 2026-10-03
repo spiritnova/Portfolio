@@ -2,13 +2,14 @@ import styles from './ContactMe.module.css'
 
 import emailjs from '@emailjs/browser';
 
-import { Send, Phone, ArrowUpRight } from 'lucide-react';
+import { Send, Phone, ArrowUpRight, Clock } from 'lucide-react';
 import { LinkedInIcon, GitHubIcon, WhatsAppIcon, DiscordIcon } from './BrandIcons';
 import CopyEmail from './CopyEmail';
 import { useRef, useState } from 'react';
 import useScrollReveal from '../useScrollReveal';
 import useBeirutTime from '../useBeirutTime';
 import { EMAIL, LINKEDIN, GITHUB } from '../../api/contact';
+import Nebula from './Nebula';
 
 const DISCORD_USERNAME = 'spirit_nova'
 const PHONE = '+961 81 586 049'
@@ -19,7 +20,7 @@ export const ContactMe = () => {
     const pageRef = useRef(null)
     useScrollReveal(pageRef)
     const time = useBeirutTime()
-    const [status, setStatus] = useState('idle') // idle | sending | success | error
+    const [status, setStatus] = useState('idle') // idle | sending | launching | success | error
     const [discordCopied, setDiscordCopied] = useState(false)
 
     const copyDiscord = () => {
@@ -39,14 +40,22 @@ export const ContactMe = () => {
 
         emailjs.sendForm(service_id, template_id, form.current, public_key)
         .then(() => {
-            setStatus('success');
             form.current.reset();
+            // the send button fires off a comet, then the form gives way to the confirmation
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+                setStatus('success');
+                return;
+            }
+            setStatus('launching');
+            setTimeout(() => setStatus('success'), 1000);
         }, () => {
             setStatus('error');
         });
     };
 
   return (
+    <div className={styles.page}>
+    <Nebula quiet />
     <div className={styles.wrapper} ref={pageRef}>
         <header className={styles.hero} data-reveal>
             <h1 className={styles.eyebrow}>Get In Touch</h1>
@@ -66,6 +75,11 @@ export const ContactMe = () => {
                     Available for new projects
                     <span className={styles.sep} aria-hidden="true">·</span>
                     {time} in Beirut
+                </p>
+
+                <p className={styles.reply}>
+                    <Clock size={16} aria-hidden="true" />
+                    I usually reply within a day.
                 </p>
 
                 <ul className={styles.channels}>
@@ -102,6 +116,13 @@ export const ContactMe = () => {
                 </ul>
             </div>
 
+            {status === 'success' ? (
+                <div className={styles.sent} role="status">
+                    <span className={styles.newStar} aria-hidden="true"></span>
+                    <p className={styles.sentText}>Message sent - thanks for reaching out, I'll get back to you soon.</p>
+                    <button type='button' className={styles.again} onClick={() => setStatus('idle')}>Send another message</button>
+                </div>
+            ) : (
             <form className={styles.form} data-reveal ref={form} onSubmit={sendEmail} aria-busy={status === 'sending'}>
                 <h2 className={styles.formTitle}>Or send a message</h2>
 
@@ -132,19 +153,18 @@ export const ContactMe = () => {
                     <textarea id="user-message" name='message' rows={4} required />
                 </div>
 
-                <button type='submit' className={styles.submit} disabled={status === 'sending'}>
-                    <span aria-live="polite">{status === 'sending' ? 'Sending...' : 'Send message'}</span>
-                    <Send size={18} aria-hidden="true" />
+                <button type='submit' className={`${styles.submit} ${status === 'launching' ? styles.launched : ''}`} disabled={status === 'sending' || status === 'launching'}>
+                    <span className={styles.submitLabel} aria-live="polite">{status === 'sending' ? 'Sending...' : 'Send message'}</span>
+                    <Send className={styles.submitIcon} size={18} aria-hidden="true" />
+                    <span className={styles.comet} aria-hidden="true"></span>
                 </button>
-
-                {status === 'success' && (
-                    <div className={`${styles.status} ${styles.statusSuccess}`} role="status" aria-live="polite">Message sent - thanks for reaching out, I'll get back to you soon.</div>
-                )}
                 {status === 'error' && (
                     <div className={`${styles.status} ${styles.statusError}`} role="alert">Something went wrong sending your message. Please try again or email me directly.</div>
                 )}
             </form>
+            )}
         </div>
+    </div>
     </div>
   )
 }

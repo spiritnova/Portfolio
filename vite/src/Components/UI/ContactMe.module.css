@@ -1,9 +1,18 @@
+/* full-width layer so the faint nebula behind the page isn't cut off at the content width */
+.page{
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
 .wrapper{
+    position: relative;
+    z-index: 1;
     max-width: 70rem;
     margin: 0 auto;
-    padding: var(--space-6) var(--space-4) 0;
+    padding: var(--space-6) var(--space-4) var(--space-5);
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
 }
 
 /* email-first header */
@@ -81,8 +90,17 @@
 }
 
 @keyframes pulse{
-    from{ box-shadow: 0 0 0 0 rgba(153, 218, 153, 0.6); }
-    to{ box-shadow: 0 0 0 8px rgba(153, 218, 153, 0); }
+    from{ box-shadow: 0 0 0 0 rgba(110, 231, 183, 0.6); }
+    to{ box-shadow: 0 0 0 8px rgba(110, 231, 183, 0); }
+}
+
+.reply{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: calc(var(--space-2) * -1);
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 .channels{
@@ -111,7 +129,7 @@
 .channel:hover{
     color: var(--accent);
     border-color: var(--accent);
-    background: rgba(222, 185, 146, 0.06);
+    background: rgba(196, 181, 253, 0.06);
 }
 
 /* form */
@@ -187,16 +205,19 @@
     color: var(--text);
 }
 
+/* the chosen topic lights up like a star */
 .topic input:checked + span{
-    background: rgba(222, 185, 146, 0.1);
+    background: rgba(196, 181, 253, 0.1);
     border-color: var(--accent);
     color: var(--text);
     font-weight: 500;
+    box-shadow: 0 0 18px -2px rgba(139, 92, 246, 0.55);
 }
 
 .topic input:checked + span::before{
-    border-color: var(--accent);
-    background: radial-gradient(circle, var(--accent) 40%, transparent 46%);
+    border-color: #ffffff;
+    background: radial-gradient(circle, #ffffff 35%, var(--accent) 45%, transparent 50%);
+    box-shadow: 0 0 8px 1px var(--accent);
 }
 
 .topic input:focus-visible + span{
@@ -224,7 +245,7 @@
     border-radius: 10px 10px 0 0;
     background: rgba(255, 255, 255, 0.04);
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     outline: none;
     transition: border-color var(--motion-fast), box-shadow var(--motion-fast), background-color var(--motion-fast);
@@ -243,8 +264,9 @@
 .formcontrol textarea:focus-visible{
     outline: none;
     border-bottom-color: var(--accent);
-    box-shadow: 0 1px 0 0 var(--accent);
-    background: rgba(222, 185, 146, 0.07);
+    /* accent underline plus a soft nebula glow rising from it */
+    box-shadow: 0 1px 0 0 var(--accent), 0 14px 30px -14px rgba(139, 92, 246, 0.7);
+    background: linear-gradient(0deg, rgba(196, 181, 253, 0.12), rgba(196, 181, 253, 0.04));
 }
 
 .formcontrol textarea{
@@ -255,6 +277,7 @@
 }
 
 .submit{
+    position: relative;
     align-self: flex-start;
     display: inline-flex;
     align-items: center;
@@ -265,7 +288,7 @@
     border: 1px solid var(--accent);
     background: var(--accent);
     color: var(--background);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
@@ -274,7 +297,7 @@
 
 .submit:hover{
     transform: translateY(-3px);
-    box-shadow: 0 12px 34px rgba(222, 185, 146, 0.35);
+    box-shadow: 0 12px 34px rgba(196, 181, 253, 0.35);
 }
 
 .submit:disabled{
@@ -284,14 +307,157 @@
     box-shadow: none;
 }
 
+/* ---------- sending: the button launches a comet ---------- */
+
+.submitLabel,
+.submitIcon{
+    transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.comet{
+    position: absolute;
+    right: 1.6rem;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 10px 2px #ffffff, 0 0 26px 6px var(--accent);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* the tail trails behind the head as it flies up and to the right */
+.comet::after{
+    content: "";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    width: 150px;
+    height: 2px;
+    transform: translateY(-50%);
+    border-radius: 2px;
+    background: linear-gradient(90deg, rgba(249, 168, 212, 0), rgba(196, 181, 253, 0.85));
+}
+
+.launched{
+    box-shadow: 0 0 40px rgba(196, 181, 253, 0.6);
+}
+
+.submit.launched:disabled{
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(196, 181, 253, 0.6);
+}
+
+.launched .submitLabel,
+.launched .submitIcon{
+    opacity: 0;
+    transform: translateX(12px);
+}
+
+.launched .comet{
+    animation: launch 1s cubic-bezier(.55, 0, .8, .2) forwards;
+}
+
+@keyframes launch{
+    0%{ opacity: 0; transform: translate(0, -50%) rotate(-35deg) scale(0.6); }
+    12%{ opacity: 1; transform: translate(0, -50%) rotate(-35deg) scale(1); }
+    100%{ opacity: 0; transform: translate(60vw, -60vh) rotate(-35deg) scale(1); }
+}
+
+/* ---------- sent: a new star in place of the form ---------- */
+
+.sent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+}
+
+.newStar{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin: var(--space-3) 0 0 var(--space-3);
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.9), 0 0 50px 14px rgba(139, 92, 246, 0.6);
+    animation: born 1.2s cubic-bezier(.2, 1.4, .4, 1) both, twinkle 3s ease-in-out 1.2s infinite;
+}
+
+/* light spikes across the new star */
+.newStar::before,
+.newStar::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: linear-gradient(90deg, transparent, rgba(236, 230, 255, 0.9), transparent);
+}
+
+.newStar::before{
+    width: 120px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+}
+
+.newStar::after{
+    width: 2px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(180deg, transparent, rgba(236, 230, 255, 0.9), transparent);
+}
+
+@keyframes born{
+    0%{ transform: scale(0); opacity: 0; }
+    60%{ transform: scale(1.5); opacity: 1; }
+    100%{ transform: scale(1); }
+}
+
+@keyframes twinkle{
+    0%, 100%{ opacity: 1; }
+    50%{ opacity: 0.7; }
+}
+
+.sentText{
+    max-width: 26rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.45;
+    animation: rise 700ms ease 400ms both;
+}
+
+@keyframes rise{
+    from{ opacity: 0; transform: translateY(10px); }
+    to{ opacity: 1; transform: none; }
+}
+
+.again{
+    min-height: 44px;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-muted);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    animation: rise 700ms ease 700ms both;
+    transition: color var(--motion-fast), border-color var(--motion-fast);
+}
+
+.again:hover{
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 .status{
     font-size: 0.85rem;
     margin-top: -0.4rem;
 }
 
-.statusSuccess{
-    color: #7fdb8a;
-}
 
 .statusError{
     color: #e57373;
@@ -306,7 +472,7 @@
 
 @media screen and (max-width: 600px){
     .wrapper{
-        padding: var(--space-5) var(--space-2) 0;
+        padding: var(--space-5) var(--space-2) var(--space-4);
     }
 
     .hero{

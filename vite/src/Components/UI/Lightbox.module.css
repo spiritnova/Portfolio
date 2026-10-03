@@ -11,7 +11,7 @@
 .backdrop{
     position: fixed;
     inset: 0;
-    background-color: rgba(5, 10, 18, 0.92);
+    background-color: rgba(5, 4, 15, 0.92);
 }
 
 .dialog{
@@ -79,7 +79,7 @@
 .close:hover{
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(222, 185, 146, 0.1);
+    background: rgba(196, 181, 253, 0.1);
 }
 
 .nav{
@@ -106,7 +106,7 @@
 .nav:hover{
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(222, 185, 146, 0.1);
+    background: rgba(196, 181, 253, 0.1);
 }
 
 .prev{

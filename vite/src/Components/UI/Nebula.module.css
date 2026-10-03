@@ -1,0 +1,181 @@
+.nebula{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    /* fade both edges so the clouds melt into the starfield under the nav and below the hero */
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 calc(100% - 160px), transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 calc(100% - 160px), transparent 100%);
+}
+
+/* faint version for other pages: dimmer clouds that fade out down the page */
+.quiet{
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 35%, transparent 90%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 35%, transparent 90%);
+}
+
+.quiet.ready .cloud{
+    opacity: calc(var(--o, 0.9) * 0.4);
+}
+
+.sky{
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+}
+
+.cloud{
+    position: absolute;
+    inset: -12%;
+    width: 124%;
+    height: 124%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 2.4s ease;
+    will-change: transform;
+}
+
+.ready .cloud{
+    opacity: var(--o, 0.9);
+}
+
+.violet{
+    --o: 0.95;
+    animation: driftA 38s ease-in-out infinite alternate;
+}
+
+.magenta{
+    --o: 0.85;
+    animation: driftB 46s ease-in-out infinite alternate;
+}
+
+.teal{
+    --o: 0.8;
+    animation: driftC 30s ease-in-out infinite alternate;
+}
+
+.cloud.core{
+    --o: 0.7;
+    animation: driftB 34s ease-in-out infinite alternate-reverse;
+}
+
+.dust{
+    --o: 0.55;
+    mix-blend-mode: normal;
+    animation: driftA 52s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes driftA{
+    from{ transform: translate3d(-2%, -1%, 0) scale(1.04) rotate(0deg); }
+    to{ transform: translate3d(2%, 1.5%, 0) scale(1.12) rotate(3deg); }
+}
+
+@keyframes driftB{
+    from{ transform: translate3d(2%, 1%, 0) scale(1.1) rotate(0deg); }
+    to{ transform: translate3d(-2.5%, -1%, 0) scale(1.02) rotate(-4deg); }
+}
+
+@keyframes driftC{
+    from{ transform: translate3d(0, 2%, 0) scale(1); }
+    to{ transform: translate3d(-3%, -2%, 0) scale(1.15); }
+}
+
+/* the bright young star at the heart of the nebula */
+.star{
+    position: absolute;
+    left: 68%;
+    top: 40%;
+    width: 0;
+    height: 0;
+}
+
+.star .core{
+    position: absolute;
+    left: -60px;
+    top: -60px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 0, #f5f0ff 6%, rgba(196, 181, 253, 0.7) 16%, rgba(139, 92, 246, 0.25) 38%, transparent 70%);
+    animation: pulse 5s ease-in-out infinite;
+}
+
+.spikes{
+    position: absolute;
+    left: -110px;
+    top: -110px;
+    width: 220px;
+    height: 220px;
+    background:
+        linear-gradient(90deg, transparent, rgba(236, 230, 255, 0.9), transparent) center / 100% 2px no-repeat,
+        linear-gradient(180deg, transparent, rgba(236, 230, 255, 0.9), transparent) center / 2px 100% no-repeat;
+    animation: spikes 7s ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%, 100%{ transform: scale(1); opacity: 0.95; }
+    50%{ transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes spikes{
+    0%, 100%{ opacity: 0.7; transform: rotate(0deg) scale(1); }
+    50%{ opacity: 1; transform: rotate(8deg) scale(1.08); }
+}
+
+/* the edge of a planet along the bottom of the hero, lit from behind */
+.planet{
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 2600px;
+    height: 2600px;
+    margin-left: -1300px;
+    margin-top: -105px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #0d0a24 0, var(--background) 120px);
+    box-shadow:
+        0 -2px 0 rgba(236, 230, 255, 0.5),
+        0 -18px 50px rgba(139, 92, 246, 0.5),
+        0 -60px 140px rgba(219, 39, 119, 0.22);
+    animation: limb 8s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* extra rim light that brightens as you scroll toward the planet */
+.rim{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow:
+        0 -2px 0 rgba(255, 255, 255, 0.7),
+        0 -10px 30px rgba(196, 181, 253, 0.7),
+        0 -40px 120px rgba(139, 92, 246, 0.5);
+}
+
+@keyframes limb{
+    0%, 100%{ opacity: 0.85; }
+    50%{ opacity: 1; }
+}
+
+@media (max-width: 700px){
+    /* keep the clouds behind the text readable on narrow screens */
+    .ready .cloud{
+        opacity: calc(var(--o, 0.9) * 0.6);
+    }
+
+    .cloud{
+        object-position: 70% 50%;
+    }
+
+    .star{
+        left: 80%;
+        top: 22%;
+    }
+
+    .planet{
+        margin-top: -70px;
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "intro": "I love helping create solutions: products people pay for, tools that save teams hours, and websites that don't make people wait.",
+    "services": [
+        {
+            "title": "SaaS and web apps",
+            "description": "Subscription products, dashboards, marketplaces. I've built billing, onboarding and dashboards for a platform with five different types of user, so I know what it takes to get a product from first login to daily use.",
+            "planet": "violet",
+            "ring": true,
+            "tilt": 9,
+            "projects": ["TechBus"]
+        },
+        {
+            "title": "Automation",
+            "description": "If your team does the same task by hand every day, it can probably run on its own. At Mövenpick, I replaced a manual nightly process with a script that runs at midnight, and turned a slow report into one click.",
+            "planet": "teal",
+            "ring": false,
+            "tilt": -10,
+            "projects": ["Mövenpick"]
+        },
+        {
+            "title": "Website rebuilds",
+            "description": "Slow or outdated site? I rebuild it to be fast, accessible and easy to keep updated, with the numbers to show it: one rebuild went from 59 to 100 on mobile PageSpeed.",
+            "planet": "rose",
+            "ring": false,
+            "tilt": 6,
+            "projects": ["ImperialJet", "TechBus"]
+        }
+    ]
+}
