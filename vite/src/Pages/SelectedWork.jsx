@@ -4,15 +4,15 @@ import { ArrowRight } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './Home.module.css'
-import cardStyles from './Projects.module.css'
 import projects from '../api/projects.json'
 import useScrollReveal from '../Components/useScrollReveal'
 import WorkedAt from '../Components/WorkedAt'
 import Services from '../Components/Services'
+import ProjectCarousel from '../Components/ProjectCarousel'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const featured = projects.filter(p => p.status !== 'in-progress' && p.Images?.length).slice(0, 3)
+const featured = projects.filter(p => p.status !== 'in-progress' && p.Images?.length)
 
 // Lazy-loaded from Home so ScrollTrigger stays out of the first paint.
 export default function SelectedWork(){
@@ -21,7 +21,6 @@ export default function SelectedWork(){
 
     useLayoutEffect(() => {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-        const timers = []
 
         const ctx = gsap.context(() => {
             // headings rise up from behind the planet's horizon
@@ -36,21 +35,9 @@ export default function SelectedWork(){
                     scrollTrigger: { trigger: el, start: 'top 92%', once: true },
                 })
             })
-
-            // each card's border lights up once as it arrives, the same light as on hover
-            ScrollTrigger.batch(`.${cardStyles.card}`, {
-                start: 'top 85%',
-                once: true,
-                onEnter: batch => batch.forEach((card, i) => {
-                    timers.push(setTimeout(() => card.classList.add(cardStyles.sweep), 350 + i * 180))
-                }),
-            })
         }, ref)
 
-        return () => {
-            timers.forEach(clearTimeout)
-            ctx.revert()
-        }
+        return () => ctx.revert()
     }, [])
 
     return (
@@ -69,30 +56,7 @@ export default function SelectedWork(){
                     </Link>
                 </div>
 
-                <div className={styles.workGrid}>
-                    {featured.map(project => (
-                        <Link to={`/projects/${project.id}`} className={`${cardStyles.card} ${styles.workCard}`} key={project.id} data-reveal>
-                            <div className={cardStyles.media}>
-                                <img src={`/assets/${project.Images[0]}`} alt="" loading="lazy" />
-                                {project.type && <span className={cardStyles.typeTag}>{project.type}</span>}
-                            </div>
-                            <div className={cardStyles.body}>
-                                <span className={cardStyles.eyebrow}>{project.subtitle}</span>
-                                <h3 className={cardStyles.title}>{project.title}</h3>
-                                {project.highlights?.[0] && <p className={styles.workSummary}>{project.highlights[0]}</p>}
-                                <div className={cardStyles.chips}>
-                                    {project.technologies.map(tech => (
-                                        <span className={cardStyles.chip} key={tech}>{tech}</span>
-                                    ))}
-                                </div>
-                                <span className={styles.caseStudy}>
-                                    Read case study
-                                    <ArrowRight size="1em" aria-hidden="true" />
-                                </span>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                <ProjectCarousel projects={featured}/>
             </section>
 
             <Services/>

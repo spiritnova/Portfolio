@@ -1,0 +1,355 @@
+.carousel{
+	--slide-w: min(56rem, 54vw);
+	--shift: 94%;
+	--ease: cubic-bezier(0.65, 0, 0.25, 1);
+	position: relative;
+	color: var(--text);
+}
+
+/* every slide sits in the same grid cell, so the stage is as tall as one slide;
+   the edges fade out like the projects are coming in from the dark */
+.stage{
+	display: grid;
+	padding: var(--space-2) 0;
+	overflow: hidden;
+	touch-action: pan-y;
+	-webkit-mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.6) 6%, #000 22%, #000 78%, rgba(0, 0, 0, 0.6) 94%, transparent);
+	mask-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.6) 6%, #000 22%, #000 78%, rgba(0, 0, 0, 0.6) 94%, transparent);
+}
+
+.slide{
+	grid-area: 1 / 1;
+	justify-self: center;
+	width: var(--slide-w);
+	translate: calc(var(--o) * var(--shift)) 0;
+	transform-origin: center 40%;
+	transition:
+		translate 800ms var(--ease),
+		scale 800ms var(--ease),
+		opacity 600ms ease,
+		filter 800ms ease;
+}
+
+.center{
+	z-index: 2;
+}
+
+.side{
+	z-index: 1;
+	scale: 0.66;
+	opacity: 0.6;
+	filter: brightness(0.75) saturate(0.85);
+}
+
+.side .link{
+	cursor: pointer;
+}
+
+.side:hover{
+	opacity: 0.8;
+}
+
+.hidden{
+	scale: 0.55;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.link,
+.link:hover{
+	display: block;
+	color: var(--text);
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.frame{
+	overflow: hidden;
+	border: 1px solid rgba(196, 181, 253, 0.2);
+	border-radius: 14px;
+	background: var(--surface);
+	transition: transform var(--motion-standard), border-color var(--motion-standard), box-shadow 800ms ease;
+}
+
+.center .frame{
+	box-shadow: 0 30px 80px -24px rgba(139, 92, 246, 0.45), 0 0 0 1px rgba(196, 181, 253, 0.06);
+}
+
+.center .link:hover .frame,
+.center .link:focus-visible .frame{
+	transform: translateY(-4px);
+	border-color: var(--accent);
+}
+
+.chrome{
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 2.4rem;
+	padding: 0 0.9rem;
+	background: var(--surface-raised);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lights{
+	display: flex;
+	gap: 0.4rem;
+}
+
+.lights i{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #ff5f57;
+}
+
+.lights i:nth-child(2){ background: #febc2e; }
+.lights i:nth-child(3){ background: #28c840; }
+
+.url{
+	position: absolute;
+	left: 50%;
+	translate: -50% 0;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	max-width: 55%;
+	padding: 0.2rem 1.25rem;
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	color: var(--fade);
+	font-size: 0.72rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.frame img{
+	display: block;
+	width: 100%;
+	aspect-ratio: 1920 / 920;
+	object-fit: cover;
+	object-position: top;
+}
+
+.caption{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.3rem;
+	margin-top: 1.4rem;
+	text-align: center;
+}
+
+.title{
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+	font-weight: 500;
+}
+
+.title svg{
+	color: var(--accent);
+	transition: transform var(--motion-standard);
+}
+
+.center .link:hover .title svg{
+	transform: translate(2px, -2px);
+}
+
+.subtitle{
+	color: var(--text-muted);
+	font-size: 0.9rem;
+}
+
+/* desktop: the arrows sit over the side projects, level with the middle of the screenshot */
+.arrow{
+	position: absolute;
+	top: calc(var(--space-2) + 1.2rem + var(--slide-w) * 0.24);
+	z-index: 3;
+	translate: 0 -50%;
+	width: 52px;
+	height: 52px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--border-subtle);
+	border-radius: 14px;
+	background: rgba(23, 18, 58, 0.75);
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	color: var(--text);
+	cursor: pointer;
+	transition: color var(--motion-fast), border-color var(--motion-fast), background var(--motion-fast);
+}
+
+.arrow:hover{
+	color: var(--accent);
+	border-color: var(--accent);
+	background: rgba(23, 18, 58, 0.95);
+}
+
+.prev{
+	left: calc(50% - var(--slide-w) / 2 - 5.5rem);
+}
+
+.next{
+	right: calc(50% - var(--slide-w) / 2 - 5.5rem);
+}
+
+.controls{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: var(--space-2);
+}
+
+.dots{
+	display: flex;
+	align-items: center;
+}
+
+/* the visible pill is small; the button around it is a comfortable tap target */
+.dot{
+	display: flex;
+	align-items: center;
+	padding: 0.9rem 0.3rem;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.dot::before{
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: rgba(196, 181, 253, 0.3);
+	transition: background var(--motion-fast);
+}
+
+.dot:hover::before{
+	background: rgba(196, 181, 253, 0.6);
+}
+
+.dotActive::before{
+	display: none;
+}
+
+.dotActive{
+	position: relative;
+}
+
+/* the active dot stretches into a track that fills up until the next project */
+.dotActive{
+	width: calc(2.5rem + 0.6rem);
+}
+
+.dotActive::after{
+	content: "";
+	position: absolute;
+	left: 0.3rem;
+	right: 0.3rem;
+	height: 8px;
+	border-radius: 999px;
+	background: rgba(196, 181, 253, 0.2);
+}
+
+.fill{
+	position: absolute;
+	z-index: 1;
+	left: 0.3rem;
+	right: 0.3rem;
+	height: 8px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, var(--accent-muted), var(--accent));
+	transform-origin: left;
+}
+
+.timed{
+	animation: fill 6s linear forwards;
+}
+
+@keyframes fill{
+	from{ transform: scaleX(0); }
+	to{ transform: scaleX(1); }
+}
+
+.toggle{
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--border-subtle);
+	border-radius: 50%;
+	background: transparent;
+	color: var(--fade);
+	cursor: pointer;
+	transition: color var(--motion-fast), border-color var(--motion-fast);
+}
+
+.toggle:hover{
+	color: var(--accent);
+	border-color: var(--accent);
+}
+
+@media (max-width: 800px){
+	.carousel{
+		--slide-w: 86vw;
+		--shift: 104%;
+	}
+
+	.stage{
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+
+	.side{
+		scale: 0.8;
+	}
+
+	.caption{
+		margin-top: 1rem;
+	}
+
+	.title{
+		font-size: 1rem;
+	}
+
+	.subtitle{
+		font-size: 0.8rem;
+	}
+
+	/* phones: arrows move down beside the dots */
+	.arrow{
+		top: auto;
+		bottom: 0;
+		translate: none;
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+	}
+
+	.prev{
+		left: var(--space-2);
+	}
+
+	.next{
+		right: var(--space-2);
+	}
+
+	.controls{
+		min-height: 44px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce){
+	.slide{
+		transition: opacity 300ms ease;
+	}
+}
