@@ -19,7 +19,7 @@ export default function Projects(){
             <h1>Portfolio</h1>
             <div className={styles.cards}>
                 {cards.map(card => {
-                    const cover = card.Images && card.Images[0]
+                    const cover = card.thumbnail ?? card.Images?.[0]
                     return (
                         <Wrapper key={card.id}>
                             <div className={styles.card} data-reveal>
