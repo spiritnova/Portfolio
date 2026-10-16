@@ -242,16 +242,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border-subtle);
-    border-radius: 50%;
+    border-radius: 12px;
     color: var(--text-muted);
-    transition: color var(--motion-fast), border-color var(--motion-fast), transform var(--motion-fast);
+    transition: color var(--motion-fast), background-color var(--motion-fast);
 }
 
-.iconLink:hover{
+.iconLink:hover,
+.iconLink:focus-visible{
     color: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-2px);
+    background-color: rgba(196, 181, 253, 0.12);
 }
 
 /* ---------- screenshots side ---------- */

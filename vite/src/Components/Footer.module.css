@@ -51,15 +51,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
     color: var(--text-muted);
-    transition: color var(--motion-fast), border-color var(--motion-fast);
+    transition: color var(--motion-fast), background-color var(--motion-fast);
 }
 
-.links a:hover{
+.links a:hover,
+.links a:focus-visible{
     color: var(--accent);
-    border-color: var(--accent);
+    background-color: rgba(196, 181, 253, 0.12);
 }
 
 @media (max-width: 600px){
