@@ -8,7 +8,7 @@
 .wrapper{
     position: relative;
     z-index: 1;
-    max-width: 70rem;
+    max-width: 72rem;
     margin: 0 auto;
     padding: var(--space-6) var(--space-4) var(--space-5);
     color: white;
@@ -49,13 +49,17 @@
 
 .container{
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-    gap: var(--space-6);
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-areas: "side window";
+    align-items: start;
+    gap: var(--space-5);
     padding-top: var(--space-5);
 }
 
-/* left column */
-.info{
+/* ---------- left: ways to reach me and the time in Beirut ---------- */
+
+.side{
+    grid-area: side;
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
@@ -67,18 +71,212 @@
     line-height: 1.7;
 }
 
-.presence{
+.channels{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    list-style: none;
+}
+
+.wide{
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.6rem;
+}
+
+.channel{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 64px;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid rgba(196, 181, 253, 0.16);
+    border-radius: 16px;
+    background: rgba(12, 10, 31, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color var(--motion-fast), background-color var(--motion-fast), transform var(--motion-fast);
+}
+
+.channel:hover{
+    color: var(--text);
+    border-color: var(--accent);
+    background: rgba(23, 18, 58, 0.75);
+    transform: translateY(-2px);
+}
+
+.channelIcon{
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(196, 181, 253, 0.1);
+    color: var(--accent);
+}
+
+.channelText{
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.channelName{
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.handle{
+    color: var(--fade);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.channelAction{
+    flex-shrink: 0;
+    margin-left: auto;
+    color: var(--fade);
+    transition: color var(--motion-fast), transform var(--motion-fast);
+}
+
+.channel:hover .channelAction{
+    color: var(--accent);
+}
+
+a.channel:hover .channelAction{
+    transform: translate(2px, -2px);
+}
+
+/* WhatsApp is where I reply fastest, so it leads with its own colour */
+.whatsapp{
+    min-height: 72px;
+    border-color: rgba(110, 231, 183, 0.3);
+    background:
+        radial-gradient(ellipse 60% 120% at 0% 50%, rgba(110, 231, 183, 0.14), transparent 70%),
+        rgba(12, 10, 31, 0.6);
+}
+
+.whatsapp:hover{
+    border-color: var(--span);
+}
+
+.whatsapp .channelIcon{
+    background: rgba(110, 231, 183, 0.14);
+    color: var(--span);
+}
+
+.whatsapp:hover .channelAction{
+    color: var(--span);
+}
+
+.call{
+    flex-shrink: 0;
+    width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(196, 181, 253, 0.16);
+    border-radius: 16px;
+    background: rgba(12, 10, 31, 0.6);
+    color: var(--text-muted);
+    transition: color var(--motion-fast), border-color var(--motion-fast);
+}
+
+.call:hover{
+    color: var(--span);
+    border-color: var(--span);
+}
+
+/* the sky over Beirut */
+.clock{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.4rem 1rem;
+    padding: 1.2rem;
+    border: 1px solid rgba(196, 181, 253, 0.16);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.night{
+    background:
+        radial-gradient(circle at 12% 30%, rgba(196, 181, 253, 0.25), transparent 40%),
+        linear-gradient(160deg, #120d33, #070617 70%);
+}
+
+.day{
+    background:
+        radial-gradient(circle at 12% 30%, rgba(253, 224, 140, 0.35), transparent 40%),
+        linear-gradient(160deg, #3b2a6b, #1d1440 70%);
+}
+
+.sky{
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.night .sky{
+    color: #ede9fe;
+    background: rgba(196, 181, 253, 0.12);
+    box-shadow: 0 0 30px rgba(196, 181, 253, 0.35);
+}
+
+.day .sky{
+    color: #fde68a;
+    background: rgba(253, 230, 138, 0.14);
+    box-shadow: 0 0 34px rgba(253, 224, 140, 0.45);
+}
+
+.time{
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.place{
+    color: var(--fade);
+    font-size: 0.85rem;
+}
+
+.clockNotes{
+    grid-column: 1 / -1;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 1rem;
+    margin-top: 0.6rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.82rem;
+}
+
+.presence{
+    display: flex;
     align-items: center;
     gap: 0.5rem;
     color: var(--span);
-    font-size: 0.85rem;
     font-weight: 500;
 }
 
-.sep{
-    color: var(--fade);
+.reply{
+    color: var(--text-muted);
 }
 
 .dot{
@@ -94,74 +292,176 @@
     to{ box-shadow: 0 0 0 8px rgba(110, 231, 183, 0); }
 }
 
-.reply{
+/* ---------- right: the "New message" window ---------- */
+
+.window{
+    grid-area: window;
+    position: relative;
+    border: 1px solid rgba(196, 181, 253, 0.22);
+    border-radius: 18px;
+    background: rgba(12, 10, 31, 0.78);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.8), 0 0 80px -30px rgba(139, 92, 246, 0.55);
+}
+
+.titlebar{
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: calc(var(--space-2) * -1);
+    height: 2.75rem;
+    padding: 0 1rem;
+    border-radius: 17px 17px 0 0;
+    background: var(--surface-raised);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lights{
+    display: flex;
+    gap: 0.45rem;
+}
+
+.lights i{
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #ff5f57;
+}
+
+.lights i:nth-child(2){ background: #febc2e; }
+.lights i:nth-child(3){ background: #28c840; }
+
+.windowTitle{
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--text-muted);
-    font-size: 0.85rem;
 }
 
-.channels{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    list-style: none;
-}
-
-.channel{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-height: 44px;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border-subtle);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--text);
-    font: inherit;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: color var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast);
-}
-
-.channel:hover{
-    color: var(--accent);
-    border-color: var(--accent);
-    background: rgba(196, 181, 253, 0.06);
-}
-
-/* form */
 .form{
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
 }
 
-.formTitle{
-    font-size: 1.4rem;
-    font-weight: 600;
-}
-
-.topics{
+/* each header line reads like a mail app: label on the left, value on the right */
+.field{
+    position: relative;
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    align-items: center;
+    min-height: 3.4rem;
+    padding: 0 1.25rem;
     border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    transition: background-color var(--motion-fast);
 }
 
-.topics legend,
-.formcontrol label{
-    margin-bottom: 0.6rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent-muted);
+/* the line you're typing on lights up, with a bar down its left edge */
+.field:focus-within{
+    background: rgba(196, 181, 253, 0.06);
+}
+
+.field::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    opacity: 0;
+    transition: opacity var(--motion-fast);
+}
+
+.field:focus-within::before{
+    opacity: 1;
+}
+
+.fieldLabel{
+    float: left;
+    padding: 0;
+    color: var(--fade);
+    font-size: 0.85rem;
+}
+
+.field input{
+    width: 100%;
+    padding: 0.9rem 0;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Chrome paints autofilled fields with its own light background and dark text; keep them see-through.
+   The background can't be overridden directly, so its change is delayed until it never happens. */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus{
+    -webkit-text-fill-color: var(--text);
+    caret-color: var(--text);
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.field input::placeholder,
+.message::placeholder{
+    color: rgba(185, 179, 209, 0.45);
+}
+
+.recipient{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+    border: 1px solid rgba(196, 181, 253, 0.25);
+    border-radius: 999px;
+    background: rgba(196, 181, 253, 0.08);
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.avatar{
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-muted), var(--nebula-pink));
+    color: var(--background);
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.recipientEmail{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--fade);
+    font-weight: 400;
+}
+
+/* subject: the topic choices */
+.topics{
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
 }
 
 .topicList{
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .topic{
@@ -179,13 +479,13 @@
 .topic span{
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    min-height: 40px;
-    padding: 0.4rem 1rem 0.4rem 0.75rem;
+    gap: 0.45rem;
+    min-height: 36px;
+    padding: 0.3rem 0.85rem 0.3rem 0.65rem;
     border: 1px solid var(--border-subtle);
     border-radius: 999px;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     transition: color var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast);
 }
 
@@ -193,8 +493,8 @@
 .topic span::before{
     content: '';
     flex-shrink: 0;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     border: 1.5px solid currentColor;
     transition: border-color var(--motion-fast), background var(--motion-fast);
@@ -225,60 +525,62 @@
     outline-offset: 3px;
 }
 
-.row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
-}
-
-.formcontrol{
-    display: flex;
-    flex-direction: column;
-}
-
-.formcontrol input,
-.formcontrol textarea{
+.message{
     width: 100%;
-    padding: 0.75rem 0.9rem;
+    min-height: 13rem;
+    max-height: 28rem;
+    padding: 1.25rem;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px 10px 0 0;
-    background: rgba(255, 255, 255, 0.04);
-    color: white;
+    background: transparent;
+    color: var(--text);
     font-family: var(--font-body);
     font-size: 1rem;
-    outline: none;
-    transition: border-color var(--motion-fast), box-shadow var(--motion-fast), background-color var(--motion-fast);
-}
-
-.formcontrol input:hover,
-.formcontrol textarea:hover{
-    border-bottom-color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-/* focus: a thicker accent underline instead of the global outline box */
-.formcontrol input:focus,
-.formcontrol textarea:focus,
-.formcontrol input:focus-visible,
-.formcontrol textarea:focus-visible{
-    outline: none;
-    border-bottom-color: var(--accent);
-    /* accent underline plus a soft nebula glow rising from it */
-    box-shadow: 0 1px 0 0 var(--accent), 0 14px 30px -14px rgba(139, 92, 246, 0.7);
-    background: linear-gradient(0deg, rgba(196, 181, 253, 0.12), rgba(196, 181, 253, 0.04));
-}
-
-.formcontrol textarea{
-    min-height: 110px;
-    max-height: 320px;
+    line-height: 1.7;
     resize: vertical;
-    line-height: 1.6;
+    outline: none;
+}
+
+/* same focus look as the lines above: a soft tint and the glowing bar on the left, not the site-wide outline */
+.message:focus,
+.message:focus-visible{
+    outline: none;
+    background: rgba(196, 181, 253, 0.04);
+    box-shadow: inset 2px 0 0 var(--accent), inset 12px 0 14px -12px var(--accent);
+}
+
+.toolbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: 0.9rem 1rem 0.9rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 0 0 17px 17px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.hint{
+    color: var(--fade);
+    font-size: 0.78rem;
+}
+
+.hint kbd{
+    padding: 0.1rem 0.4rem;
+    border: 1px solid var(--border-subtle);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.72rem;
+}
+
+.statusError{
+    color: #e57373;
+    font-size: 0.85rem;
 }
 
 .submit{
     position: relative;
-    align-self: flex-start;
+    flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
@@ -305,6 +607,15 @@
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+}
+
+.srOnly{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 /* ---------- sending: the button launches a comet ---------- */
@@ -453,20 +764,26 @@
     border-color: var(--accent);
 }
 
-.status{
-    font-size: 0.85rem;
-    margin-top: -0.4rem;
-}
 
-
-.statusError{
-    color: #e57373;
+/* the confirmation fills the window where the form was */
+.sent{
+    min-height: 26rem;
+    padding: var(--space-4) var(--space-4) var(--space-5);
 }
 
 @media screen and (max-width: 900px){
+    /* phones and tablets: the message window first, ways to reach me after */
     .container{
         grid-template-columns: 1fr;
-        gap: var(--space-5);
+        grid-template-areas: "window" "side";
+        gap: var(--space-4);
+    }
+}
+
+/* the keyboard shortcut means nothing on a touch screen */
+@media (hover: none){
+    .hint{
+        visibility: hidden;
     }
 }
 
@@ -483,7 +800,38 @@
         padding-top: var(--space-4);
     }
 
-    .row{
+    .field{
+        grid-template-columns: 4rem minmax(0, 1fr);
+        padding: 0 1rem;
+    }
+
+    .recipientEmail{
+        display: none;
+    }
+
+    .message{
+        padding: 1rem;
+        min-height: 10rem;
+    }
+
+    .toolbar{
+        padding: 0.8rem 1rem;
+    }
+
+    .submit{
+        flex: 1;
+        justify-content: center;
+    }
+
+    .hint{
+        display: none;
+    }
+
+    .channels{
         grid-template-columns: 1fr;
+    }
+
+    .call{
+        width: 64px;
     }
 }
