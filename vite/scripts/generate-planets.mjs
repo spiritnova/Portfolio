@@ -55,15 +55,47 @@ const planets = {
         ${layer('s')}`,
 }
 
+// The renderer doesn't honour stitchTiles, so the noise's left and right edges don't match and a hard
+// line sweeps across the planet once per turn. Fix it by cross-fading with a copy shifted half a width:
+// near the edges the shifted copy takes over, and the shifted copy's own break sits in the middle,
+// where it is invisible. Both edges then show the same column, so the texture wraps without a line.
+function makeSeamless(data, width, height, channels){
+    const out = Buffer.alloc(data.length)
+    for (let x = 0; x < width; x++){
+        // only the outer fifth on each side blends; mixing two unrelated patches of noise looks muddy
+        const t = Math.max(0, (Math.abs(x / (width - 1) - 0.5) * 2 - 0.6) / 0.4)
+        const m = t * t * (3 - 2 * t)
+        const sx = (x + width / 2) % width
+        for (let y = 0; y < height; y++){
+            for (let k = 0; k < channels; k++){
+                const a = data[(y * width + x) * channels + k]
+                const b = data[(y * width + sx) * channels + k]
+                out[(y * width + x) * channels + k] = Math.round(a * (1 - m) + b * m)
+            }
+        }
+    }
+    return out
+}
+
 await mkdir(OUT, { recursive: true })
 
 for (const [name, body] of Object.entries(planets)){
     // render at the drawing's own size and shrink afterwards: rendering the noise straight
     // at a smaller size makes the renderer split it into mismatched tiles
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${VIEW_W}" height="${VIEW_H}" viewBox="0 0 ${VIEW_W} ${VIEW_H}">${body}</svg>`
-    const full = await sharp(Buffer.from(svg)).png().toBuffer()
-    const info = await sharp(full)
-        .resize(OUT_W, OUT_H)
+    const { data, info: raw } = await sharp(Buffer.from(svg)).removeAlpha().raw().toBuffer({ resolveWithObject: true })
+    const tile = makeSeamless(data, raw.width, raw.height, raw.channels)
+
+    // shrink three copies side by side and keep the middle one, so the resize blends each edge
+    // with the other side of the wrap instead of with nothing
+    const input = { raw: { width: VIEW_W, height: VIEW_H, channels: raw.channels } }
+    const strip = await sharp({ create: { width: VIEW_W * 3, height: VIEW_H, channels: raw.channels, background: '#000' } })
+        .composite([0, 1, 2].map(i => ({ input: tile, ...input, left: VIEW_W * i, top: 0 })))
+        .png()
+        .toBuffer()
+    const info = await sharp(strip)
+        .resize(OUT_W * 3, OUT_H)
+        .extract({ left: OUT_W, top: 0, width: OUT_W, height: OUT_H })
         // brighter and richer than the raw noise, since the page shades most of the sphere into night
         .modulate({ brightness: 1.4, saturation: 1.25 })
         .linear(1.1, -12)
