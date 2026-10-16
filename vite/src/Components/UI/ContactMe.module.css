@@ -197,78 +197,21 @@ a.channel:hover .channelAction{
     border-color: var(--span);
 }
 
-/* the sky over Beirut */
-.clock{
-    position: relative;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 0.4rem 1rem;
-    padding: 1.2rem;
-    border: 1px solid rgba(196, 181, 253, 0.16);
-    border-radius: 18px;
-    overflow: hidden;
-}
-
-.night{
-    background:
-        radial-gradient(circle at 12% 30%, rgba(196, 181, 253, 0.25), transparent 40%),
-        linear-gradient(160deg, #120d33, #070617 70%);
-}
-
-.day{
-    background:
-        radial-gradient(circle at 12% 30%, rgba(253, 224, 140, 0.35), transparent 40%),
-        linear-gradient(160deg, #3b2a6b, #1d1440 70%);
-}
-
-.sky{
-    width: 52px;
-    height: 52px;
+/* availability and local time: plain lines under the cards */
+.notes{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.night .sky{
-    color: #ede9fe;
-    background: rgba(196, 181, 253, 0.12);
-    box-shadow: 0 0 30px rgba(196, 181, 253, 0.35);
-}
-
-.day .sky{
-    color: #fde68a;
-    background: rgba(253, 230, 138, 0.14);
-    box-shadow: 0 0 34px rgba(253, 224, 140, 0.45);
-}
-
-.time{
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 500;
-    line-height: 1.1;
-}
-
-.place{
-    color: var(--fade);
+    flex-direction: column;
+    gap: 0.5rem;
     font-size: 0.85rem;
 }
 
-.clockNotes{
-    grid-column: 1 / -1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.4rem 1rem;
-    margin-top: 0.6rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.82rem;
+.sep{
+    color: var(--fade);
 }
 
 .presence{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
     color: var(--span);

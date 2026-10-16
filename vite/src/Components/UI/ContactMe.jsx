@@ -2,7 +2,7 @@ import styles from './ContactMe.module.css'
 
 import emailjs from '@emailjs/browser';
 
-import { Send, Phone, ArrowUpRight, Copy, Check, Moon, Sun } from 'lucide-react';
+import { Send, Phone, ArrowUpRight, Copy, Check } from 'lucide-react';
 import { LinkedInIcon, WhatsAppIcon, DiscordIcon } from './BrandIcons';
 import CopyEmail from './CopyEmail';
 import { useRef, useState } from 'react';
@@ -15,16 +15,11 @@ const DISCORD_USERNAME = 'spirit_nova'
 const PHONE = '+961 81 586 049'
 const TOPICS = ['Freelance project', 'Full-time role', 'Just saying hi']
 
-const hourFormatter = new Intl.DateTimeFormat('en-US', { hour: 'numeric', hourCycle: 'h23', timeZone: 'Asia/Beirut' })
-
 export const ContactMe = () => {
     const form = useRef();
     const pageRef = useRef(null)
     useScrollReveal(pageRef)
     const time = useBeirutTime()
-    // `time` refreshes every few seconds, so this re-checks along with it
-    const hour = Number(hourFormatter.format(new Date()))
-    const daytime = hour >= 7 && hour < 19
     const [status, setStatus] = useState('idle') // idle | sending | launching | success | error
     const [discordCopied, setDiscordCopied] = useState(false)
 
@@ -118,22 +113,14 @@ export const ContactMe = () => {
                     </li>
                 </ul>
 
-                {/* the sky over Beirut right now, so people know when to expect a reply */}
-                <div className={`${styles.clock} ${daytime ? styles.day : styles.night}`}>
-                    <span className={styles.sky} aria-hidden="true">
-                        {daytime ? <Sun size={22} /> : <Moon size={22} />}
-                    </span>
-                    <div>
-                        <p className={styles.time}>{time}</p>
-                        <p className={styles.place}>in Beirut, Lebanon</p>
-                    </div>
-                    <div className={styles.clockNotes}>
-                        <p className={styles.presence}>
-                            <span className={styles.dot} aria-hidden="true"></span>
-                            Available for new projects
-                        </p>
-                        <p className={styles.reply}>I usually reply within a day.</p>
-                    </div>
+                <div className={styles.notes}>
+                    <p className={styles.presence}>
+                        <span className={styles.dot} aria-hidden="true"></span>
+                        Available for new projects
+                        <span className={styles.sep} aria-hidden="true">·</span>
+                        {time} in Beirut
+                    </p>
+                    <p className={styles.reply}>I usually reply within a day.</p>
                 </div>
             </aside>
 
