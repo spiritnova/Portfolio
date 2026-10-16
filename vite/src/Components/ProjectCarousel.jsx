@@ -135,7 +135,7 @@ export default function ProjectCarousel({ projects }){
                                             {addressBar(project)}
                                         </span>
                                     </div>
-                                    <img src={`/assets/${project.Images[0]}`} alt="" loading="lazy" decoding="async" draggable={false} />
+                                    <img src={`/assets/${project.thumbnail ?? project.Images[0]}`} alt="" loading="lazy" decoding="async" draggable={false} />
                                 </div>
                                 <div className={styles.caption}>
                                     <span className={styles.title}>
